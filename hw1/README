@@ -1,0 +1,42 @@
+Asef Islam
+aislam5
+aislam5@jhu.edu
+Data Structures Spring 2019 Assignment 1
+
+Part A:
+1. My algorithm works as follows:
+    a. initializes a vector of integers
+    b. parses integers from the command line arguments index by index
+    c. checks if each integer is already in the vector
+    d. if it is not, it adds it to the vector
+    e. once it has processed all command line arguments, prints each integer in the vector
+2.  This was basically the approach that I started with, although initially I was
+    considering using an array instead of a vector but then decided to use a vector and essentially outsource
+    memory allocation to the vector package
+3.  I am mostly using IntelliJ for development, and had some trouble initially setting it up but eventually was able
+    to figure things out. The hardest part was setting up git integration.
+
+Part B:
+1. For Resetable counter to extend counter means that Resetable counter has all of the same functionality as a regular
+    counter, plus some added functionality as well. Generally an interface that extends another has all the same
+    functionality as that interface being extended, plus some more.
+2. Any Resetable counter is also a counter, but any counter is not necessarily a resetable counter.
+3. With testAnyCounter taking any resetable counter as its argument, all types of resetable counters can be tested
+    together in one function. Thus, the tests in that function should be able to apply to any type of resetable counter
+    that is passed in, ensuring that they all have the basic expected proper functionality of a resetable counter.
+
+Part C:
+    adt MultiCounter
+        uses Integer
+        defines MultiCounter
+        operations
+           new: Integer x Integer ---> MultiCounter
+           up: MultiCounter ---> MultiCounter
+           down: MultiCounter ---> MultiCounter
+           value: MultiCounter ---> Integer
+        axioms
+           value(new(s,f)) = s
+           value(up(c)) = value(c) * d
+           value(down(c)) = ceil(value(c) / d)
+
+    1.
