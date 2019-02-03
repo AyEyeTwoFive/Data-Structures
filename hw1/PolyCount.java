@@ -25,7 +25,6 @@ final class PolyCount {
     private static void testAnyCounter(ResetableCounter counter) {
         int x1 = counter.value();
         assert x1 >= 0;
-
         counter.up();
         int x2 = counter.value();
         assert x2 >= x1;
