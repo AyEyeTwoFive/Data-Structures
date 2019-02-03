@@ -39,4 +39,9 @@ Part C:
            value(up(c)) = value(c) * d
            value(down(c)) = ceil(value(c) / d)
 
-    1.
+    1. Counter seems more abstract in the sense that it is more general and has less specific implementations than
+        FlexCounter or MultiCounter. Counter requires less information to operate its implementations, (ex. it always
+        increments by 1 and doesn't need an additional specified value for the increment).
+    2. An even more abstract ADT than Counter would be any ADT that increments up and down but not necessarily with a
+        fixed operation (like up adding one to the value and down subtracting by one). For example, more abstract
+        axioms could be value(up(c)) > value(c) and value(down(c)) < down(c). 
