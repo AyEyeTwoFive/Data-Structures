@@ -7,14 +7,19 @@ Part A:
 1. My algorithm works as follows:
     a. initializes an array of vectors (with maximum size set to the number of command line arguments)
     b. parses integers from the command line arguments index by index (and throws exception for non-integers)
-    c. checks if each integer is already in the array
-    d. if it is not, it adds it to the varray
+    c. checks if each integer is already in the array by comparing index by index
+    d. if it is not, it adds it to the array
     e. once it has processed all command line arguments, prints each integer in the array
 2.  This was basically the approach that I started with, although initially I used the vector class instead of arrays
     because I was unaware of the requirement against this. I then had to adapt my code to use arrays, which made it
-    slightly more difficult but still not too bad.
+    slightly more difficult but still not too bad. I just had to implement new, slightly more involved methods of
+    checking whether the integers were unique, indexing and exception handling.
 3.  I am mostly using IntelliJ for development, and had some trouble initially setting it up but eventually was able
-    to figure things out. The hardest part was setting up git integration.
+    to figure things out. I had some difficulty figuring out the "project"- based interface of IntelliJ. I also
+    started by using Ubuntu for Windows for command line and code running purposes and it took me some time to figure
+    out the installation and how to run code. Another tricky step was setting up git integration, although that isn't
+    yet necessarily a requirement. However going through all this to get the environment set up was very useful, and I
+    feel prepared to develop from here on out.
 
 Part B:
 1. For Resetable counter to extend counter means that Resetable counter has all of the same functionality as a regular

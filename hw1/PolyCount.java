@@ -28,7 +28,6 @@ final class PolyCount {
         counter.up();
         int x2 = counter.value();
         assert x2 >= x1;
-
         // TODO - Make a more comprehensive test of a ResetableCounter
         counter.down();
         counter.down();

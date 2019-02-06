@@ -6,7 +6,6 @@
  */
 
 package hw1;
-import java.util.Arrays;
 
 /** A class with a main method for printing out unique numbers. */
 public final class Unique {
@@ -26,16 +25,21 @@ public final class Unique {
         for(int i=0; i < args.length; i++) {
             try {
                 int thisnum = Integer.parseInt(args[i]);
-                if (!(Arrays.stream(nums).anyMatch(j -> j == thisnum))) { //if it is unique
-                    nums[lastind] = thisnum;
-                    lastind = lastind + 1;
+                int isunique = 0;
+                for (int q=0; q<lastind;q++) {
+                    if(thisnum == nums[q]) {
+                        isunique = 1;
+                    }
                 }
+                 if (isunique == 0)   { //if it is unique
+                        nums[lastind] = thisnum;
+                        lastind = lastind + 1;
+                 }
             }
             catch (NumberFormatException e) {
                 throw new IllegalArgumentException("arguments must be strings");
             }
         }
-
         for(int i=0; i<lastind;i++) { //let's print
             System.out.println(nums[i]);
         }
