@@ -6,7 +6,7 @@
  */
 
 package hw1;
-import java.util.*;
+import java.util.Arrays;
 
 /** A class with a main method for printing out unique numbers. */
 public final class Unique {
@@ -21,16 +21,23 @@ public final class Unique {
      * @param args The string array of arguments in the command line.
      */
     public static void main(String[] args) {
-        Vector<Integer> nums = new Vector<Integer>(); //where we'll store the numbers
+        int[] nums = new int[args.length]; //where we'll store the numbers
+        int lastind = 0;
         for(int i=0; i < args.length; i++) {
-            int thisnum = Integer.parseInt(args[i]);
-               if(!(nums.contains(thisnum))) { //if it is unique
-                nums.add(thisnum);
+            try {
+                int thisnum = Integer.parseInt(args[i]);
+                if (!(Arrays.stream(nums).anyMatch(j -> j == thisnum))) { //if it is unique
+                    nums[lastind] = thisnum;
+                    lastind = lastind + 1;
+                }
+            }
+            catch (NumberFormatException e) {
+                throw new IllegalArgumentException("arguments must be strings");
             }
         }
 
-        for(int i=0; i<nums.size();i++) { //let's print
-            System.out.println(nums.get(i));
+        for(int i=0; i<lastind;i++) { //let's print
+            System.out.println(nums[i]);
         }
     }
 

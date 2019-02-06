@@ -5,14 +5,14 @@ Data Structures Spring 2019 Assignment 1
 
 Part A:
 1. My algorithm works as follows:
-    a. initializes a vector of integers
-    b. parses integers from the command line arguments index by index
-    c. checks if each integer is already in the vector
-    d. if it is not, it adds it to the vector
-    e. once it has processed all command line arguments, prints each integer in the vector
-2.  This was basically the approach that I started with, although initially I was
-    considering using an array instead of a vector but then decided to use a vector and essentially outsource
-    memory allocation to the vector package
+    a. initializes an array of vectors (with maximum size set to the number of command line arguments)
+    b. parses integers from the command line arguments index by index (and throws exception for non-integers)
+    c. checks if each integer is already in the array
+    d. if it is not, it adds it to the varray
+    e. once it has processed all command line arguments, prints each integer in the array
+2.  This was basically the approach that I started with, although initially I used the vector class instead of arrays
+    because I was unaware of the requirement against this. I then had to adapt my code to use arrays, which made it
+    slightly more difficult but still not too bad.
 3.  I am mostly using IntelliJ for development, and had some trouble initially setting it up but eventually was able
     to figure things out. The hardest part was setting up git integration.
 
@@ -44,4 +44,4 @@ Part C:
         increments by 1 and doesn't need an additional specified value for the increment).
     2. An even more abstract ADT than Counter would be any ADT that increments up and down but not necessarily with a
         fixed operation (like up adding one to the value and down subtracting by one). For example, more abstract
-        axioms could be value(up(c)) > value(c) and value(down(c)) < down(c). 
+        axioms could be value(up(c)) > value(c) and value(down(c)) < down(c).
