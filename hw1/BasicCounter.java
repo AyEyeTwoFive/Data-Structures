@@ -1,4 +1,7 @@
 /* TODO - Add your name, JHED, and email.
+    Asef Islam
+    aislam5
+    aislam5@jhu.edu
  * BasicCounter.java
  */
 

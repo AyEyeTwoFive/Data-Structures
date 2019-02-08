@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae1215a3-c331-4d23-a062-7cce1c4c24f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../hw2/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PolyCount.class" beforeDir="false" afterPath="$PROJECT_DIR$/PolyCount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PolyCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/PolyCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unique.class" beforeDir="false" afterPath="$PROJECT_DIR$/Unique.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unique.java" beforeDir="false" afterPath="$PROJECT_DIR$/Unique.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/BasicCounter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,13 +35,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PolyCount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+            <state relative-caret-position="340">
+              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding>
                 <element signature="e#0#1922#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BasicCounter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#814#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/FlexibleCounter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
               <folding>
                 <element signature="e#845#846#0" expanded="true" />
                 <element signature="e#881#882#0" expanded="true" />
@@ -96,12 +105,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BasicCounter.java" />
         <option value="$PROJECT_DIR$/FlexibleCounter.java" />
         <option value="$PROJECT_DIR$/TenCounter.java" />
         <option value="$PROJECT_DIR$/Unique.java" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/PolyCount.java" />
+        <option value="$PROJECT_DIR$/BasicCounter.java" />
       </list>
     </option>
   </component>
@@ -133,8 +142,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549491290526" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549590023527" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hw2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -184,7 +193,7 @@
       <updated>1548982980788</updated>
       <workItem from="1548982982109" duration="7217000" />
       <workItem from="1549049633993" duration="11396000" />
-      <workItem from="1549420041884" duration="4843000" />
+      <workItem from="1549420041884" duration="6816000" />
     </task>
     <servers />
   </component>
@@ -194,7 +203,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23456000" />
+    <option name="totallyTimeSpent" value="25429000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -244,13 +253,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BasicCounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Counter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -319,7 +321,7 @@
     <entry file="file://$PROJECT_DIR$/FlexibleCounter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
           <folding>
             <element signature="e#845#846#0" expanded="true" />
             <element signature="e#881#882#0" expanded="true" />
@@ -335,10 +337,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PolyCount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+        <state relative-caret-position="340">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding>
             <element signature="e#0#1922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BasicCounter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#814#0" expanded="true" />
           </folding>
         </state>
       </provider>
