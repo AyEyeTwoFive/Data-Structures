@@ -47,6 +47,19 @@ final class PolyCount {
             assert x4 == 1;
         }
 
+        ResetableCounter testflex = new FlexibleCounter(9,3);
+        testflex.up();
+        testflex.reset();
+        assert testflex.value() == 9;
+
+        int argcheck = 0;
+        try {
+            ResetableCounter testflex2 = new FlexibleCounter(3,-1);
+        }
+        catch (IllegalArgumentException e) {
+            argcheck = 1;
+        }
+        assert argcheck == 1;
     }
 
     /**

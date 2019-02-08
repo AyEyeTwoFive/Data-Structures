@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3408783-ea66-4775-8d23-731c400b1ab0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hw1/BasicCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw1/BasicCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw1/FlexibleCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../hw1/FlexibleCounter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw1/FlexibleCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw1/FlexibleCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw1/PolyCount.class" beforeDir="false" afterPath="$PROJECT_DIR$/../hw1/PolyCount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw1/PolyCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw1/PolyCount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -19,6 +19,9 @@ public class FlexibleCounter implements ResetableCounter {
      * @throws IllegalArgumentException If incrementValue is negative.
      */
     public FlexibleCounter(int initialValue, int incrementValue) {
+        if(incrementValue < 0) {
+            throw new IllegalArgumentException("increment value can not be negative");
+        }
         this.init = initialValue;
         this.val = initialValue;
         this.inc = incrementValue;
