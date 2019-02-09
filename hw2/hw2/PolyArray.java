@@ -1,11 +1,14 @@
 /* TODO - Add your name, JHED, and email.
+    Asef Islam
+    aislam5
+    aislam5@jhu.edu
  * PolyArray.java
  */
 
 package hw2;
 
 import exceptions.LengthException;
-
+import exceptions.IndexException;
 import java.util.ArrayList; // see note in main() below
 
 
@@ -26,6 +29,27 @@ public final class PolyArray {
     }
 
     // TODO - Add more axiom tests
+
+    private static void testPutandGet(Array<Integer> a) {
+        Integer test_int = new Integer(5);
+        a.put(26, test_int);
+        Integer get_int = a.get(26);
+        assert test_int == get_int;
+        Integer test_int2 = new Integer(44);
+        a.put(26, test_int2);
+        Integer get_int2 = a.get(26);
+        assert test_int2 == get_int2;
+        Integer test_int3 = new Integer(2);
+        a.put(0,test_int3);
+        Integer get_int3 = a.get(0);
+        assert test_int3 == get_int3;
+    }
+
+    private static void testSparse() {
+        SparseArray<Integer> sparseTest = new SparseArray<Integer>(20, 5);
+        assert sparseTest.get(10) == 5;
+    }
+
 
     private static void testNewWrongLength() {
         try {
@@ -48,6 +72,45 @@ public final class PolyArray {
         }
     }
 
+    private static void testIllegalGetIndex(Array<Integer> a) {
+        try {
+            a.get(113); //should throw exception
+            assert false;
+        }
+        catch (IndexException e) {
+            // passed
+        }
+        try {
+            a.get(-5); //should throw exception
+            assert false;
+        }
+        catch (IndexException e) {
+            // passed
+        }
+    }
+
+    private static void testIllegalPutIndex(Array<Integer> a) {
+        try {
+            Integer test_int = new Integer(5);
+            a.put(113,test_int); //should throw exception
+            assert false;
+        }
+        catch (IndexException e) {
+            // passed
+        }
+        try {
+            Integer test_int2 = new Integer(5);
+            a.put(-5,test_int2); //should throw exception
+            assert false;
+        }
+        catch (IndexException e) {
+            // passed
+        }
+    }
+
+
+
+
     // TODO - Add more exception tests
 
     /**
@@ -64,18 +127,21 @@ public final class PolyArray {
         arrays.add(new SimpleArray<>(LENGTH, INITIAL));
         arrays.add(new ListArray<>(LENGTH, INITIAL));
         arrays.add(new SparseArray<>(LENGTH, INITIAL));
-
         // Test all the axioms. We can do that nicely in a loop. In the test
         // methods, keep in mind that you are handed the same object over and
         // over again! I.e., order matters!
         for (Array<Integer> a: arrays) {
             testNewLength(a);
+            testPutandGet(a);
             // TODO - Call your axiom test methods
         }
-
         // Exception testing. Sadly we have to code each one of these
         // out manually, not even Java's reflection API would help...
         testNewWrongLength();
+        for (Array<Integer> a: arrays) {
+            testIllegalGetIndex(a);
+            testIllegalPutIndex(a);
+        }
         // TODO - Call your exception test methods
     }
 }
