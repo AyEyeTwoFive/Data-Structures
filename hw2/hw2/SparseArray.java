@@ -14,10 +14,13 @@ import java.util.Iterator;
 
 /**
  * TODO - Write a good Javadoc description for potential clients.
- * Array implementation that keeps track of only stored values that have changed from the default value
- * Useful (more memory-efficient) in the case that your array will store a large amount of elements that have
- * the same (default) value, and only few that are non-default.
- * If your array has mostly unique values, it is not much of an advantage to use sparse array over simple array.
+ * Array implementation that keeps track of only stored values that have
+ *  changed from the default value.
+ * Useful (more memory-efficient) in the case that your array
+ *  will store a large amount of elements that have
+ *  the same (default) value, and only few that are non-default.
+ * If your array has mostly unique values, it is not much of an
+ *  advantage to use sparse array over simple array.
  * @param <T> Element type.
  */
 public class SparseArray<T> implements Array<T> {
@@ -36,8 +39,9 @@ public class SparseArray<T> implements Array<T> {
         SparseArrayIterator() {
             this.defnode.data = SparseArray.this.defval;
             Node<T> n = SparseArray.this.list;
-            while (n != null) { //look through to see if the 1st element is non-default
-                if(n.position == 0) {
+            while (n != null) {
+                //look through to see if the 1st element is non-default
+                if (n.position == 0) {
                     this.current = n; //start the iterator here
                 }
                 n = n.next;
@@ -49,24 +53,28 @@ public class SparseArray<T> implements Array<T> {
         @Override
         public boolean hasNext() {
             // TODO
-            return this.current.position < SparseArray.this.len; //there's a next element
+            return this.current.position < SparseArray.this.len;
+            //there's a next element
         }
 
         @Override
         public T next() {
-            int next_ind = this.current.position + 1; //what the next index should be
+            int nextind = this.current.position + 1;
+            //what the next index should be
             Node<T> n = SparseArray.this.list;
-            while (n != null) { //look if the next index has a non-default value
-                if(n.position == next_ind) {
+            while (n != null) {
+                //look if the next index has a non-default value
+                if (n.position == nextind) {
                     T temp = this.current.data;
-                    this.current = n; //this is where the iterator is now
+                    this.current = n;
+                    //this is where the iterator is now
                     return temp;
                 }
                 n = n.next;
             }
             T temp = this.current.data;
             this.current = defnode; //else, it's at the default node
-            defnode.position = next_ind;
+            defnode.position = nextind;
             return temp;
         }
 
@@ -88,6 +96,11 @@ public class SparseArray<T> implements Array<T> {
     private int len;
     private T defval;
 
+    /** Constructor of a Sparse Array.
+     * @param length the number of indexes the array should have
+     * @param defaultValue the default value for the array
+     * @throws LengthException if length is not > 0
+     */
     public SparseArray(int length, T defaultValue) throws LengthException {
         // TODO
         if (length <= 0) {
@@ -112,7 +125,7 @@ public class SparseArray<T> implements Array<T> {
         }
         Node<T> n = this.list;
         while (n != null) {
-            if(n.position == i) {
+            if (n.position == i) {
                 return n.data;
             }
             n = n.next;
@@ -139,7 +152,7 @@ public class SparseArray<T> implements Array<T> {
             return;
         }
         while (n != null) {
-            if(n.position == i) {
+            if (n.position == i) {
                 n.data = t;
                 return;
             }

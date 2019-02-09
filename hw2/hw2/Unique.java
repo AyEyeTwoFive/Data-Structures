@@ -7,7 +7,7 @@
 
 package hw2;
 
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.Scanner;
 
 /** Unique problem using a SparseArray and processing from standard in. */
@@ -24,32 +24,32 @@ public final class Unique {
         Scanner scan = new Scanner(System.in);
         SimpleArray<Integer> nums = new SimpleArray<Integer>(10, 0);
         int lastind = 0;
-        while(scan.hasNext()) {
+        while (scan.hasNext()) {
             try {
                 int thisnum = Integer.parseInt(scan.next());
                 int isunique = 0;
-                for (int q=0; q<lastind;q++) {
-                    if(thisnum ==nums.get(q)) {
+                for (int q = 0; q < lastind; q++) {
+                    if (thisnum == nums.get(q)) {
                         isunique = 1;
                     }
                 }
                 if (isunique == 0)   { //if it is unique
-                    if(lastind + 2 > nums.length()) { //let's double the size
+                    if (lastind + 2 > nums.length()) { //let's double the size
                         SimpleArray<Integer> temp = nums;
                         nums = new SimpleArray<Integer>(temp.length() * 2, 0);
-                        for(int l = 0; l < temp.length(); l++) {
+                        for (int l = 0; l < temp.length(); l++) {
                             nums.put(l, temp.get(l));
                         }
                     }
-                    nums.put(lastind,thisnum);
+                    nums.put(lastind, thisnum);
                     lastind = lastind + 1;
                 }
             }
             catch (NumberFormatException e) {
-                throw new IllegalArgumentException("arguments must be integers");
+                throw new IllegalArgumentException("arguments must be ints");
             }
         }
-        for(int i=0; i<lastind;i++) { //let's print
+        for (int i = 0; i < lastind; i++) { //let's print
             System.out.println(nums.get(i));
         }
     }

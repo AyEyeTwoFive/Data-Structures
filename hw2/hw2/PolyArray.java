@@ -32,18 +32,18 @@ public final class PolyArray {
     // TODO - Add more axiom tests
 
     private static void testPutandGet(Array<Integer> a) {
-        Integer test_int = new Integer(5);
-        a.put(26, test_int);
-        Integer get_int = a.get(26);
-        assert test_int == get_int;
-        Integer test_int2 = new Integer(44);
-        a.put(26, test_int2);
-        Integer get_int2 = a.get(26);
-        assert test_int2 == get_int2;
-        Integer test_int3 = new Integer(2);
-        a.put(0,test_int3);
-        Integer get_int3 = a.get(0);
-        assert test_int3 == get_int3;
+        Integer testint = new Integer(5);
+        a.put(26, testint);
+        Integer getint = a.get(26);
+        assert testint == getint;
+        Integer testint2 = new Integer(44);
+        a.put(26, testint2);
+        Integer getint2 = a.get(26);
+        assert testint2 == getint2;
+        Integer testint3 = new Integer(2);
+        a.put(0, testint3);
+        Integer getint3 = a.get(0);
+        assert testint3 == getint3;
     }
 
     private static void testSparse() {
@@ -53,29 +53,29 @@ public final class PolyArray {
         assert sparseTest.get(10) == 12;
         sparseTest.put(15, 11);
         sparseTest.put(18, 3);
-        Iterator<Integer> test_iter = sparseTest.iterator();
-        int curr_pos = 0;
-        while(test_iter.hasNext()) {
-            if (curr_pos == 10) {
-                assert test_iter.next() == 12;
+        Iterator<Integer> testiter = sparseTest.iterator();
+        int currpos = 0;
+        while (testiter.hasNext()) {
+            if (currpos == 10) {
+                assert testiter.next() == 12;
             }
-            else if (curr_pos == 15) {
-                assert test_iter.next() == 11;
+            else if (currpos == 15) {
+                assert testiter.next() == 11;
             }
-            else if (curr_pos == 18) {
-                assert test_iter.next() == 3;
+            else if (currpos == 18) {
+                assert testiter.next() == 3;
             }
             else {
-                assert test_iter.next() == 5;
+                assert testiter.next() == 5;
             }
-            curr_pos += 1;
+            currpos += 1;
         }
         SparseArray<Integer> sparseTest2 = new SparseArray<Integer>(10, 3);
         sparseTest2.put(0, 9);
         assert sparseTest2.get(0) == 9;
-        Iterator<Integer> test_iter2 = sparseTest2.iterator();
-        assert test_iter2.next() == 9;
-        assert test_iter2.next() == 3;
+        Iterator<Integer> testiter2 = sparseTest2.iterator();
+        assert testiter2.next() == 9;
+        assert testiter2.next() == 3;
     }
 
 
@@ -119,16 +119,16 @@ public final class PolyArray {
 
     private static void testIllegalPutIndex(Array<Integer> a) {
         try {
-            Integer test_int = new Integer(5);
-            a.put(113,test_int); //should throw exception
+            Integer testint = new Integer(5);
+            a.put(113, testint); //should throw exception
             assert false;
         }
         catch (IndexException e) {
             // passed
         }
         try {
-            Integer test_int2 = new Integer(5);
-            a.put(-5,test_int2); //should throw exception
+            Integer testint2 = new Integer(5);
+            a.put(-5, testint2); //should throw exception
             assert false;
         }
         catch (IndexException e) {

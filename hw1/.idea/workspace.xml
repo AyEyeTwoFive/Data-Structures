@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae1215a3-c331-4d23-a062-7cce1c4c24f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../hw2/hw2/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw2/hw2/PolyArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/hw2/PolyArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw2/hw2/SparseArray$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/hw2/SparseArray$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw2/hw2/SparseArray$SparseArrayIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/hw2/SparseArray$SparseArrayIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw2/hw2/SparseArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/hw2/SparseArray.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hw2/hw2/SparseArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/hw2/SparseArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw2/hw2/Unique.class" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/hw2/Unique.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw2/hw2/Unique.java" beforeDir="false" afterPath="$PROJECT_DIR$/../hw2/hw2/Unique.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
