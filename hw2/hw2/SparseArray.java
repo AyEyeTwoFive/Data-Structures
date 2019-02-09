@@ -15,6 +15,9 @@ import java.util.Iterator;
 /**
  * TODO - Write a good Javadoc description for potential clients.
  * Array implementation that keeps track of only stored values that have changed from the default value
+ * Useful (more memory-efficient) in the case that your array will store a large amount of elements that have
+ * the same (default) value, and only few that are non-default.
+ * If your array has mostly unique values, it is not much of an advantage to use sparse array over simple array.
  * @param <T> Element type.
  */
 public class SparseArray<T> implements Array<T> {

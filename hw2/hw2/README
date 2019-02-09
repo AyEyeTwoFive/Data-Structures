@@ -1,0 +1,24 @@
+Asef Islam
+aislam5
+aislam5@jhu.edu
+Assignment 2
+
+Part A:
+In order to double the array when space was running out, I simply kept track of the last index where
+an integer was added to the array, and each time before adding a unique integer, I checked whether this
+last index was nearing the length of the array. If it was, I simply created a new array with twice the length
+of the previous, deep copied the previous array into the new one index by index, and continued the code
+with the new array.
+
+Part B:
+1. Sparse Array would be useful in the case where a client needs a large array, but most of the elements of
+the array would be the same value and only some would be a different value. In these cases using the Sparse Array
+implementation would save memory because you only really need to keep track of the elements that are different,
+since you know that everything else will be the same default value.
+2. Sparse Array should implement iterator because even though internally you are only keeping track of the
+elements that are different from the default value, from the client side you should still be able to display
+the sparse array as a standard array where you know the value stored in every index from 0 to the end. Thus,
+the iterator should be able to iterate through all of the indexes in order, whether they store a
+default or non-default value. Iterators are useful for many methods implemented for the array, such as print methods
+and any other method that has to do something to every element in the array one by one or be able to display the
+array as a full array.
