@@ -27,24 +27,44 @@ public class SparseArray<T> implements Array<T> {
 
     // TODO - You'll need this to implement the iterator() method
     private class SparseArrayIterator implements Iterator<T> {
-
         Node<T> current; //current position
+        Node<T> defnode; //node for default values
+
         SparseArrayIterator() {
-            this.current = SparseArray.this.list;
+            this.defnode.data = SparseArray.this.defval;
+            Node<T> n = SparseArray.this.list;
+            while (n != null) { //look through to see if the 1st element is non-default
+                if(n.position == 0) {
+                    this.current = n; //start the iterator here
+                }
+                n = n.next;
+            }
+            this.current = defnode; //else, iterator starts at default node
+            defnode.position = 0;
         }
 
         @Override
         public boolean hasNext() {
             // TODO
-            return this.current != null;
+            return this.current.position < SparseArray.this.len; //there's a next element
         }
 
         @Override
         public T next() {
-            // TODO
-            T t = this.current.data;
-            this.current = this.current.next;
-            return t;
+            int next_ind = this.current.position + 1; //what the next index should be
+            Node<T> n = SparseArray.this.list;
+            while (n != null) { //look if the next index has a non-default value
+                if(n.position == next_ind) {
+                    T temp = this.current.data;
+                    this.current = n; //this is where the iterator is now
+                    return temp;
+                }
+                n = n.next;
+            }
+            T temp = this.current.data;
+            this.current = defnode; //else, it's at the default node
+            defnode.position = next_ind;
+            return temp;
         }
 
         @Override

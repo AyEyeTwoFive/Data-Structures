@@ -10,6 +10,7 @@ package hw2;
 import exceptions.LengthException;
 import exceptions.IndexException;
 import java.util.ArrayList; // see note in main() below
+import java.util.Iterator;
 
 
 /**
@@ -48,6 +49,33 @@ public final class PolyArray {
     private static void testSparse() {
         SparseArray<Integer> sparseTest = new SparseArray<Integer>(20, 5);
         assert sparseTest.get(10) == 5;
+        sparseTest.put(10, 12);
+        assert sparseTest.get(10) == 12;
+        sparseTest.put(15, 11);
+        sparseTest.put(18, 3);
+        Iterator<Integer> test_iter = sparseTest.iterator();
+        int curr_pos = 0;
+        while(test_iter.hasNext()) {
+            if (curr_pos == 10) {
+                assert test_iter.next() == 12;
+            }
+            else if (curr_pos == 15) {
+                assert test_iter.next() == 11;
+            }
+            else if (curr_pos == 18) {
+                assert test_iter.next() == 3;
+            }
+            else {
+                assert test_iter.next() == 5;
+            }
+            curr_pos += 1;
+        }
+        SparseArray<Integer> sparseTest2 = new SparseArray<Integer>(10, 3);
+        sparseTest2.put(0, 9);
+        assert sparseTest2.get(0) == 9;
+        Iterator<Integer> test_iter2 = sparseTest2.iterator();
+        assert test_iter2.next() == 9;
+        assert test_iter2.next() == 3;
     }
 
 
