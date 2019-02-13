@@ -22,6 +22,8 @@ import java.util.Iterator;
 public final class PolyArray {
     private static final int LENGTH = 113;
     private static final int INITIAL = 7;
+    private static final int ITERL = 20;
+    private static final int ITERI = 5;
 
     private PolyArray() {}
 
@@ -46,14 +48,13 @@ public final class PolyArray {
         assert testint3 == getint3;
     }
 
-    private static void testSparse() {
-        SparseArray<Integer> sparseTest = new SparseArray<Integer>(20, 5);
-        assert sparseTest.get(10) == 5;
-        sparseTest.put(10, 12);
-        assert sparseTest.get(10) == 12;
-        sparseTest.put(15, 11);
-        sparseTest.put(18, 3);
-        Iterator<Integer> testiter = sparseTest.iterator();
+    private static void itertest(Array<Integer> a) {
+        assert a.get(10) == 5;
+        a.put(10, 12);
+        assert a.get(10) == 12;
+        a.put(15, 11);
+        a.put(18, 3);
+        Iterator<Integer> testiter = a.iterator();
         int currpos = 0;
         while (testiter.hasNext()) {
             if (currpos == 10) {
@@ -70,6 +71,9 @@ public final class PolyArray {
             }
             currpos += 1;
         }
+    }
+    
+    private static void testSparse() {
         SparseArray<Integer> sparseTest2 = new SparseArray<Integer>(10, 3);
         sparseTest2.put(0, 9);
         assert sparseTest2.get(0) == 9;
@@ -158,14 +162,23 @@ public final class PolyArray {
         // Test all the axioms. We can do that nicely in a loop. In the test
         // methods, keep in mind that you are handed the same object over and
         // over again! I.e., order matters!
+        ArrayList<Array<Integer>> arrays2 = new ArrayList<>();
+        arrays2.add(new SimpleArray<>(ITERL, ITERI));
+        arrays2.add(new ListArray<>(ITERL, ITERI));
+        arrays2.add(new SparseArray<>(ITERL, ITERI));
         for (Array<Integer> a: arrays) {
             testNewLength(a);
             testPutandGet(a);
             // TODO - Call your axiom test methods
         }
+        for (Array<Integer> a: arrays2) {
+            itertest(a);
+            // TODO - Call your axiom test methods
+        }
         // Exception testing. Sadly we have to code each one of these
         // out manually, not even Java's reflection API would help...
         testNewWrongLength();
+        testSparse();
         for (Array<Integer> a: arrays) {
             testIllegalGetIndex(a);
             testIllegalPutIndex(a);

@@ -4,13 +4,11 @@
     <list default="true" id="d3408783-ea66-4775-8d23-731c400b1ab0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../hw1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hw1/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2/PolyArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/PolyArray.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw2/PolyArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/PolyArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw2/SparseArray$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/SparseArray$Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw2/SparseArray$SparseArrayIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/SparseArray$SparseArrayIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw2/SparseArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/SparseArray.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw2/SparseArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/SparseArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw2/Unique.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/Unique.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw2/Unique.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/Unique.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,25 +21,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw2/Unique.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#0#421#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw2/SparseArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="90" column="30" lean-forward="true" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+            <state relative-caret-position="250">
+              <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
               <folding>
-                <element signature="e#0#1580#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#684#685#0" expanded="true" />
-                <element signature="e#749#750#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/hw2/ListArray.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+              <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
               <folding>
                 <element signature="e#0#3574#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -60,13 +52,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hw2/PolyArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="221">
+              <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
               <folding>
-                <element signature="e#0#2645#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
@@ -77,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/hw2/README">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -85,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw2/SimpleArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="102">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#3307#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -126,8 +117,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1780" />
-    <option name="height" value="1240" />
+    <option name="x" value="-15" />
+    <option name="y" value="-15" />
+    <option name="width" value="1835" />
+    <option name="height" value="1835" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -135,7 +128,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,12 +150,13 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549756024052" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550083336821" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -192,18 +185,19 @@
       <option name="presentableId" value="Default" />
       <updated>1549511811217</updated>
       <workItem from="1549511814811" duration="3500000" />
-      <workItem from="1549603538109" duration="24305000" />
+      <workItem from="1549603538109" duration="25512000" />
+      <workItem from="1550039473180" duration="3387000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27805000" />
+    <option name="totallyTimeSpent" value="32399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="733" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2534413" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14331985" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -220,7 +214,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.049751244" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.094527364" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -247,6 +241,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/Unique.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2/SimpleArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#3307#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hw2/Array.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -257,17 +276,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw2/ListArray.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
           <folding>
             <element signature="e#0#3574#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -275,47 +287,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/SimpleArray.java">
+    <entry file="file://$PROJECT_DIR$/hw2/SparseArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="250">
+          <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
           <folding>
-            <element signature="e#0#3307#0" expanded="true" />
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/Unique.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#421#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw2/PolyArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="221">
+          <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
           <folding>
-            <element signature="e#0#2645#0" expanded="true" />
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2/SparseArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="90" column="30" lean-forward="true" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#1580#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
           </folding>
         </state>
       </provider>
