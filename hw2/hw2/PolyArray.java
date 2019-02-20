@@ -72,7 +72,7 @@ public final class PolyArray {
             currpos += 1;
         }
     }
-    
+
     private static void testSparse() {
         SparseArray<Integer> sparseTest2 = new SparseArray<Integer>(10, 3);
         sparseTest2.put(0, 9);
