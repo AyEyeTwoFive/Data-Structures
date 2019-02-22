@@ -5,6 +5,8 @@ package hw3;
 
 import org.junit.Before;
 import org.junit.Test;
+import exceptions.IndexException;
+import exceptions.LengthException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,7 +36,7 @@ public class MeasuredArrayTest {
 
     @Test
     public void getLengthIsAccess() {
-        assertEquals(0,array.length());
+        assertEquals(20,array.length());
         assertEquals(1,array.accesses());
     }
 
@@ -75,7 +77,7 @@ public class MeasuredArrayTest {
         assertEquals(4, array.mutations());
         assertEquals(0,array.accesses());
         assertEquals(4,array.count("changed"));
-        assertEquals(21,array.accesses());
+        assertEquals(20,array.accesses());
     }
 
     @Test

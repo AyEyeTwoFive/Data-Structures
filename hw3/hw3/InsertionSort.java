@@ -16,18 +16,19 @@ public final class InsertionSort<T extends Comparable<T>>
     @Override
     public void sort(Array<T> array) {
         int len = array.length();
-        for (int i = 1; i< len; ++i)
+        for (int i = 1; i < len; i++)//++i)
         {
             T temp = array.get(i);
-            int j = i - 1;
-
+            int j = i;// - 1;
             //check and move greater
-            while (j >= 0 && array.get(j) > temp)
+            //while (j >= 0 && array.get(j).compareTo(temp) > 0)
+            while (j == 0 && temp.compareTo(array.get(j-1)) < 0)
             {
-                array.put(j+1,array.get(j));
+                array.put(j, array.get(j-1));
+                array.put(j - 1, temp);
                 j = j - 1;
             }
-            array.put(j+1, temp);
+            //array.put(j + 1, temp);
         }
     }
 

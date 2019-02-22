@@ -1,0 +1,5 @@
+
+Part A
+next() should because it actually returns. hasnext shouldn't
+Part B
+THe numbers are being viewed as strings.
