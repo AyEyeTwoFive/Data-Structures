@@ -25,7 +25,7 @@ public final class BubbleSort<T extends Comparable<T>> implements SortingAlgorit
                     array.put(j + 1, temp);
                 }
             }
-            if (haveSwapped) {
+            if (!haveSwapped) {
                 break;
             }
         }

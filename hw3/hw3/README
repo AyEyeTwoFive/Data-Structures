@@ -1,5 +1,138 @@
 
 Part A
-next() should because it actually returns. hasnext shouldn't
+    The number of mutations should never change when using an iterator, since you should never be changing the data in
+    the array directly while iterating over it. In terms of the number of mutations, it should increment if you are
+    actually trying to access the data in the array. For example, using the next() method (assuming there is a next)
+    should add 1 to the number of mutations since it returns the data that is in that next index. However, hasNext()
+    shouldn't because it is only checking if there is a next node and returning the corresponding boolean value, but
+    not actually accessing the data in the node.
+    You can not inherit the iterator methods from SimpleArray because they are private, thus you would have to
+    implement the iterator methods for MeasuredArray from scratch.
+
 Part B
-THe numbers are being viewed as strings.
+    First, I tried running tests with the random data, using increasing sizes:
+
+    Algorithm            Sorted?  Size         Accesses     Mutations    Seconds
+    Selection Sort       true     100          15,235       186          0.001439
+    Bubble Sort          true     100          13,653       4,402        0.001193
+    Insertion Sort       true     100          4,599        4,402        0.000816
+
+    Selection Sort       true     1,000        1,502,483    1,984        0.022482
+    Bubble Sort          true     1,000        1,496,103    500,072      0.029987
+    Insertion Sort       true     1,000        502,069      500,072      0.017458
+
+    Selection Sort       true     10,000       150,024,981  19,982       0.565054
+    Bubble Sort          true     10,000       149,912,895  49,939,150   1.363301
+    Insertion Sort       true     10,000       49,959,147   49,939,150   0.306460
+
+    When using the seconds of runtime as a metric, the asymptotic complexity does not correspond to what is expected.
+    All of these sorting algorithms are O(N^2), so I expected that when I increased the size of the data by a factor
+    of 10 (increasing from 100 to 1000) the time that it took to run would increase by a factor of 100. This was not
+    the case, however, as for all of the algorithms the time only increased by a factor of 15-20. This was actually
+    closer to linear time than quadratic.
+
+    However, when using the number of accesses and mutations as a metric, they complexity does follow the expected
+    pattern. For Bubble Sort, increasing the problem size by a factor of 10 did increase the number of accesses and
+    mutations by a factor of 100 (corresponding to quadratic: O(N^2)) which was expected. For selection sort, the
+    number of accesses increased quadratically while the number of comparisons increased linearly, which is also
+    expected. And for Insertion sort, the number of accesses and mutations both increased quadratically, which is
+    expected as well.
+
+    For practical purposes, selection sort is useful in cases when the data that is being swapped is very large
+    (it takes up a lot of space in memory, such as when the data are large objects). This is because selection sort
+    does not use more swaps than is needed, as opposed to insertion or bubble sort which may use a lot of swaps.
+    Thus, when the data you are sorting is very large, swapping them many times can result in low runtimes.
+    In some cases where a lot of the data is already sorted, bubble sort might be useful because of the early
+    terminating condition when large parts of the array are already sorted.
+
+    Ascending data:
+    Algorithm            Sorted?  Size         Accesses     Mutations    Seconds
+    Null Sort            true     10           0            0            0.000003
+    Gnome Sort           true     10           29           0            0.000111
+    Selection Sort       true     10           154          0            0.000150
+    Bubble Sort          true     10           19           0            0.000043
+    Insertion Sort       true     10           19           0            0.000224
+
+    If the data is already in ascending order, all of the algorithms should run pretty fast as the data is already
+    sorted. The number of mutations should thus be 0 for all of them, since no swapping has to be done. Bubble sort
+    runs especially fast given the early ending condition that it has when the data is already sorted. Bubble sort
+    and insertion sort have a small number of accesses as well, while selection sort has more accesses.
+
+    Descending data:
+    Algorithm            Sorted?  Size         Accesses     Mutations    Seconds
+
+    Null Sort            false    10           0            0            0.000005
+    Gnome Sort           true     10           371          90           0.000500
+    Selection Sort       true     10           164          10           0.000085
+    Bubble Sort          true     10           181          90           0.000156
+    Insertion Sort       true     10           100          90           0.000140
+
+    Descending data is in a way close to being the "worst case" as the data is sorted in the exact opposite way as
+    what it's supposed to. Thus, it's supposed to be most close to the algorithmic complexity, which looks to be the
+    case (quadratic accesses for all, quadratic mutations for bubble and insertion and linear mutations for selection).
+
+
+    MISTAKE: The Mistake is in the ascending data. I noticed this because the number of mutations should always be 0
+    regardless of the size, since all of the data should already be ascending. However, this is not the case.
+
+    Algorithm            Sorted?  Size         Accesses     Mutations    Seconds
+    Null Sort            true     10           0            0            0.000009
+    Gnome Sort           true     10           29           0            0.000185
+    Selection Sort       true     10           154          0            0.000313
+    Bubble Sort          true     10           19           0            0.000041
+    Insertion Sort       true     10           19           0            0.000067
+
+    Algorithm            Sorted?  Size         Accesses     Mutations    Seconds
+    Null Sort            false    100          0            0            0.000006
+    Gnome Sort           true     100          3,179        720          0.001871
+    Selection Sort       true     100          15,221       172          0.001306
+    Bubble Sort          true     100          2,431        720          0.000365
+    Insertion Sort       true     100          919          720          0.000778
+
+    I noticed that for a size of 10 or less, the number of mutations is indeed 0 as expected, but for any larger size
+    there are mutations. This must mean that the data is not actually in ascending data past the 10th index.
+    When I opened the ascending data, at first glance it looks like it is all in ascending order:
+
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+    14
+    15
+
+    However, when comparing to the descending order, the reason for the mistake becomes apparent:
+    9999
+    9998
+    9997
+    9996
+    9995
+    9994
+    9993
+    9992
+    9991
+    9990
+    999
+    9989
+    9988
+    9987
+    9986
+    9985
+    9984
+
+    The reason is because the numbers are being interpreted as strings, rather than integers, when being read in from
+    the data files. Thus, it is comparing the characters of the strings index by index, rather than the numerical
+    values. This is why "9" is being viewed as greater than "10" in the ascending data, because technically the
+    first character in the "10" string, a "1" is "less than" the character "9". Meanwhile in the descending data, the
+    strings are actually sorted in an order that makes the string comparisons descending.
+
+   Part C:
