@@ -1,4 +1,8 @@
-/* BubbleSort.java */
+/* BubbleSort.java
+ * *   Asef Islam
+ * aislam5
+ * aislam5@jhu.edu
+  * */
 
 package hw3;
 
@@ -9,7 +13,8 @@ import hw2.Array;
  * if the array is sorted.
  * @param <T> The type being sorted.
  */
-public final class BubbleSort<T extends Comparable<T>> implements SortingAlgorithm<T> {
+public final class BubbleSort<T extends Comparable<T>>
+        implements SortingAlgorithm<T> {
 
     @Override
     public void sort(Array<T> array) {
@@ -17,8 +22,7 @@ public final class BubbleSort<T extends Comparable<T>> implements SortingAlgorit
         for (int i = 0; i < len - 1; i++) {
             boolean haveSwapped = false;
             for (int j = 0; j < len - i - 1; j++) {
-                if (array.get(j).compareTo(array.get(j + 1)) > 0) //swap
-                {
+                if (array.get(j).compareTo(array.get(j + 1)) > 0) { //swap
                     haveSwapped = true;
                     T temp = array.get(j);
                     array.put(j, array.get(j + 1));

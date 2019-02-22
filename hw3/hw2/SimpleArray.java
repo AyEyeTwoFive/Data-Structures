@@ -1,4 +1,7 @@
 /* 601.226
+ *   Asef Islam
+ * aislam5
+ * aislam5@jhu.edu
  * SimpleArray.java
  */
 

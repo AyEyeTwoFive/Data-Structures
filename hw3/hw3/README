@@ -1,3 +1,6 @@
+*   Asef Islam
+*   aislam5
+*   aislam5@jhu.edu
 
 Part A
     The number of mutations should never change when using an iterator, since you should never be changing the data in

@@ -1,4 +1,8 @@
-/* MeasuredArray.java */
+/* MeasuredArray.java
+  Asef Islam
+* aislam5
+* aislam5@jhu.edu
+* */
 
 package hw3;
 
@@ -19,6 +23,7 @@ public class MeasuredArray<T> extends SimpleArray<T> implements Measured<T> {
      * @param n The size of the array.
      * @param t The initial value to set every object to in the array..
      */
+
     public MeasuredArray(int n, T t) {
         super(n, t);
         this.accesses = 0;
