@@ -136,3 +136,30 @@ Part B
     strings are actually sorted in an order that makes the string comparisons descending.
 
    Part C:
+
+     1: public static void selectionSort(int[] a) {                 COMPLEXITY [C(N), A(N)]
+       2:    int max, temp;                                         [0    0]
+       3:    for (int i = 0; i < a.length - 1; i++) {               [N    N]
+       4:        max = i;                                           [0    N-1]
+       5:        for (int j = i + 1; j < a.length; j++) {           [N(N-1)/2 + N-1     N(N-1)/2 + N-1]
+       6:            if (a[j] > a[max]) {                           [N(N-1)/2    0]
+       7:                max = j;                                   [0    N(N-1)/2]
+       8:            }
+       9:        }
+      10:        temp = a[i];                                       [0    N-1]
+      11:        a[i] = a[max];                                     [0    N-1]
+      12:        a[max] = temp;                                     [0    N-1]
+      13:     }
+      14:  }
+
+      Explanation for annotated line C and A values above:
+      Line 3 (the outer loop) happens N-1 times, and in doing so gives N Comparisons and N Assignments
+      Line 4 gives N-1 assignments since it is in the outer loop which happens N - 1 times
+      Line 5 (inner loop) happens N(N-1)/2 times, giving that many assignments and comparisons, plus another N-1 of
+      each since the terminating conditions of the outer loop are executed N-1 times
+      Line 6 gives N(N-1)/2 assignments (number of times of execution of inner loop)
+      Lines 10-12 all give N-1 assignments (# of executions of outer loop)
+
+      Adding up the line by line values annotated above, the totals are:
+      C(N) = N + N(N-1)/2 + N - 1 + N(N-1)/2 = N^2 - N - 1
+      A(N) = N + N - 1 + N(N-1)/2 + N(N-1)/2 + 3N - 3 = N^2 + 5N - 5
