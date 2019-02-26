@@ -33,7 +33,7 @@ public final class Calc {
             if (token.equals("?")) { // print command
                 System.out.println(stack.toString());
             }
-            else if (isInt(token)) { //user enters an integer
+            else if (isInt(token)) { // user enters an integer
                 stack.push(token);
             }
             else if (token.equals("+")) { // add
@@ -44,7 +44,7 @@ public final class Calc {
                     stack.pop();
                     stack.push(Integer.toString(second + first));
                 }
-                catch (EmptyException e) { //there wasn't 2 integers
+                catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough integers in stack");
                 }
             }
@@ -56,7 +56,7 @@ public final class Calc {
                     stack.pop();
                     stack.push(Integer.toString(second - first));
                 }
-                catch (EmptyException e) { //there wasn't 2 integers
+                catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough integers in stack");
                 }
             }
@@ -68,7 +68,7 @@ public final class Calc {
                     stack.pop();
                     stack.push(Integer.toString(second * first));
                 }
-                catch (EmptyException e) { //there wasn't 2 integers
+                catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough integers in stack");
                 }
             }
@@ -82,7 +82,7 @@ public final class Calc {
                     stack.pop();
                     stack.push(Integer.toString(second / first));
                 }
-                catch (EmptyException e) { //there wasn't 2 integers
+                catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough integers in stack");
                 }
                 catch (ArithmeticException a) { // divide by 0
@@ -99,7 +99,7 @@ public final class Calc {
                     stack.pop();
                     stack.push(Integer.toString(second % first));
                 }
-                catch (EmptyException e) { //there wasn't 2 integers
+                catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough integers in stack");
                 }
             }
@@ -107,7 +107,7 @@ public final class Calc {
                 System.out.println(stack.top());
                 stack.pop();
             }
-            else if (token.equals("!")) { //quit
+            else if (token.equals("!")) { // quit
                 return;
             }
             else { // none of the recognized tokens
