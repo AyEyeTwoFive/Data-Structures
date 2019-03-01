@@ -22,6 +22,7 @@ public class ArrayDeque226<T> implements Deque226<T> {
         this.data = new SimpleArray<T>(1, null);
     }
 
+
     /** Method to double the array.
      *
      * @return
@@ -37,7 +38,7 @@ public class ArrayDeque226<T> implements Deque226<T> {
         }
         this.data = temp;
         this.front = 0;
-        this.back = prevLen;
+        this.back = prevLen - 1;
     }
 
     /** Method to move all elements to the right to create space to insert in front.
@@ -45,8 +46,16 @@ public class ArrayDeque226<T> implements Deque226<T> {
      * @return
      */
     public void shiftRight() {
-        for (int i = 0; i < this.used; i++) {
+        /*for (int i = front + 1; i <= this.used; i++) {
+        //for (int i = 0; i < this.used; i++) {
             this.data.put(i + 1, this.data.get(i));
+        }*/
+        T temp = null;
+        for (int i = 0; i < this.used; i++) {
+            //for (int i = 0; i < this.used; i++) {
+            T temp2 = this.data.get(i);
+            this.data.put(i, temp);
+            temp = temp2;
         }
     }
 
@@ -54,6 +63,7 @@ public class ArrayDeque226<T> implements Deque226<T> {
     public boolean empty() {
         return this.used == 0;
     }
+
 
     @Override
     public int length() {
@@ -87,6 +97,7 @@ public class ArrayDeque226<T> implements Deque226<T> {
             shiftRight();
             this.data.put(front, t);
             this.used += 1;
+            this.back += 1;
             //if (front == 0) { // no space in front
                 /* SimpleArray<T> temp = new SimpleArray<T>(2 * this.used, null);
                 for (int i = 1; i <= this.used; i++) {
@@ -102,7 +113,13 @@ public class ArrayDeque226<T> implements Deque226<T> {
         else if (front == 0) { // space in the back
                 shiftRight();
                 this.data.put(front, t);
-                this.used += 1;
+                if (this.used == 0) { // first time add
+                    this.used += 1;
+                }
+                else{
+                    this.used += 1;
+                    this.back += 1;
+                }
                 //this.front -= 1;
         }
         else {
@@ -131,15 +148,22 @@ public class ArrayDeque226<T> implements Deque226<T> {
                 }
                 this.data = temp; */
             //doubleArray();
-            this.data.put(this.used, t);
+            this.data.put(back + 1, t);
             this.used += 1;
             this.back += 1;
             //}
         }
         else if (front == 0) { // just add it to the back
-            this.data.put(this.used, t);
-            this.used += 1;
-            back += 1;
+            if (this.used == 0) { // empty array
+                this.data.put(back, t);
+                this.used += 1;
+                //back += 1;
+            }
+            else {
+                this.data.put(back + 1, t);
+                this.used += 1;
+                back += 1;
+            }
             //front += 1;
             //back = front - 1;
         }

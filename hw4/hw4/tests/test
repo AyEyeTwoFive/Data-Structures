@@ -1,0 +1,10 @@
+package hw4.tests;
+
+import exceptions.EmptyException;
+import hw4.Deque226;
+
+public final class test() {
+    public static void main(String[] args) {
+        Deque226<String> deck = new ArrayDeque226<>();
+    }
+}

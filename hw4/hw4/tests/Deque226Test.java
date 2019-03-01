@@ -87,18 +87,22 @@ public abstract class Deque226Test {
         dequeue.insertFront("Test3");
         dequeue.insertFront("Test4");
         dequeue.removeFront();
-        assertEquals("Test3",dequeue.front());
+        assertEquals("Test3", dequeue.front());
     }
 
-    /*@Test
+    @Test
     public void removeBackTest() {
         dequeue.insertFront("Test1");
         dequeue.insertFront("Test2");
+        assertEquals("Test1", dequeue.back());
         dequeue.insertFront("Test3");
+        assertEquals("Test1", dequeue.back());
         dequeue.insertFront("Test4");
+        assertEquals("Test4", dequeue.front());
+        assertEquals("Test1", dequeue.back());
         dequeue.removeBack();
         assertEquals("Test2",dequeue.back());
-    }*/
+    }
 
 
 
