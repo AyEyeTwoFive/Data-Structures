@@ -2,6 +2,7 @@
 
 
 package hw4;
+
 import java.util.Scanner;
 import exceptions.EmptyException;
 
@@ -11,6 +12,11 @@ public final class Calc {
     // Hush checkstyle
     private Calc() {}
 
+    /** Method to determine if a string represents an integer.
+     *
+     * @param s The string to evaluate
+     * @return boolean value of whether true or false
+     */
     public static boolean isInt(String s) {
         try {
             int num = Integer.parseInt(s);
@@ -24,19 +30,20 @@ public final class Calc {
      * The main function.
      * @param args Not used.
      */
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         ArrayStack<String> stack = new ArrayStack<String>();
         String token; // store user commands
-        while(scan.hasNext()) { // program cycles until user quits
+        while (scan.hasNext()) { // program cycles until user quits
             token = scan.next(); // get the next token
-            if (token.equals("?")) { // print command
+            if ("?".equals(token)) { // print command
                 System.out.println(stack.toString());
             }
             else if (isInt(token)) { // user enters an integer
                 stack.push(token);
             }
-            else if (token.equals("+")) { // add
+            else if ("+".equals(token)) { // add
                 try {
                     int second = Integer.parseInt(stack.top());
                     stack.pop();
@@ -48,7 +55,7 @@ public final class Calc {
                     System.err.println("ERROR: Not enough integers in stack");
                 }
             }
-            else if (token.equals("-")) { // subtract
+            else if ("-".equals(token)) { // subtract
                 try {
                     int second = Integer.parseInt(stack.top());
                     stack.pop();
@@ -60,7 +67,7 @@ public final class Calc {
                     System.err.println("ERROR: Not enough integers in stack");
                 }
             }
-            else if (token.equals("*")) { // multiply
+            else if ("*".equals(token)) { // multiply
                 try {
                     int second = Integer.parseInt(stack.top());
                     stack.pop();
@@ -72,7 +79,7 @@ public final class Calc {
                     System.err.println("ERROR: Not enough integers in stack");
                 }
             }
-            else if (token.equals("/")) { // divide
+            else if ("/".equals(token)) { // divide
                 int second = 0;
                 int first = 0;
                 try {
@@ -85,13 +92,13 @@ public final class Calc {
                 catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough integers in stack");
                 }
-                catch (ArithmeticException a) { // divide by 0
+                catch (ArithmeticException e) { // divide by 0
                     System.err.println("ERROR: Can't Divide by 0");
                     stack.push(Integer.toString(first));
                     stack.push(Integer.toString(second));
                 }
             }
-            else if (token.equals("%")) { // mod
+            else if ("%".equals(token)) { // mod
                 try {
                     int second = Integer.parseInt(stack.top());
                     stack.pop();
@@ -103,11 +110,11 @@ public final class Calc {
                     System.err.println("ERROR: Not enough integers in stack");
                 }
             }
-            else if (token.equals(".")) { // pop and print top
+            else if (".".equals(token)) { // pop and print top
                 System.out.println(stack.top());
                 stack.pop();
             }
-            else if (token.equals("!")) { // quit
+            else if ("!".equals(token)) { // quit
                 return;
             }
             else { // none of the recognized tokens
