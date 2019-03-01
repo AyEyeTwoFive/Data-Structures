@@ -36,5 +36,74 @@ public abstract class Deque226Test {
         dequeue.removeFront();
     }
 
+    @Test(expected=EmptyException.class)
+    public void removeBackOnEmpty() {
+        dequeue.removeBack();
+    }
+
+    @Test(expected=EmptyException.class)
+    public void getFrontOnEmpty() {
+        dequeue.front();
+    }
+
+    @Test(expected=EmptyException.class)
+    public void getBackOnEmpty() {
+        dequeue.back();
+    }
+
+    @Test
+    public void insertFrontandGetLength() {
+        dequeue.insertFront("Test");
+        dequeue.insertFront("Test");
+        dequeue.insertFront("Test");
+        assertEquals(3,dequeue.length());
+        assertTrue(!dequeue.empty());
+    }
+
+    @Test
+    public void insertFrontAndGetFrontAndBack() {
+        dequeue.insertFront("Test1");
+        dequeue.insertFront("Test2");
+        assertEquals(2,dequeue.length());
+        assertTrue(!dequeue.empty());
+        assertEquals("Test2",dequeue.front());
+        assertEquals("Test1",dequeue.back());
+    }
+
+    @Test
+    public void insertBackAndGetFrontAndBack() {
+        dequeue.insertBack("Test1");
+        dequeue.insertBack("Test2");
+        assertEquals(2,dequeue.length());
+        assertTrue(!dequeue.empty());
+        assertEquals("Test1",dequeue.front());
+        assertEquals("Test2",dequeue.back());
+    }
+
+    @Test
+    public void removeFrontTest() {
+        dequeue.insertFront("Test1");
+        dequeue.insertFront("Test2");
+        dequeue.insertFront("Test3");
+        dequeue.insertFront("Test4");
+        dequeue.removeFront();
+        assertEquals("Test3",dequeue.front());
+    }
+
+    @Test
+    public void removeBackTest() {
+        dequeue.insertFront("Test1");
+        dequeue.insertFront("Test2");
+        dequeue.insertFront("Test3");
+        dequeue.insertFront("Test4");
+        dequeue.removeBack();
+        assertEquals("Test2",dequeue.back());
+    }
+
+
+
+
+
+
     // TODO - Add more tests!
 }
