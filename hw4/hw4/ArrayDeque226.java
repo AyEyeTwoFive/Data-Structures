@@ -46,17 +46,16 @@ public class ArrayDeque226<T> implements Deque226<T> {
      * @return
      */
     public void shiftRight() {
-        /*for (int i = front + 1; i <= this.used; i++) {
-        //for (int i = 0; i < this.used; i++) {
-            this.data.put(i + 1, this.data.get(i));
-        }*/
-        T temp = null;
+        for (int i = this.used; i > 0; i--) {
+            this.data.put(i, this.data.get(i - 1));
+        }
+        /*T temp = null;
         for (int i = 0; i < this.used; i++) {
             //for (int i = 0; i < this.used; i++) {
             T temp2 = this.data.get(i);
             this.data.put(i, temp);
             temp = temp2;
-        }
+        }*/
     }
 
     @Override
