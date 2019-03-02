@@ -1,2 +1,18 @@
 Part A:
-    Divide by Zero:
+    Error Conditions:
+    1. Not enough arguments. This error occurs when a user is trying to enter an operation but there
+    are not enough integers currently in the stack. Specifically, you can not apply an arithmetic operation
+    if there are less than two integers in the stack.
+    2. Bad token. This occurs if the token entered by the user is not recognized as an integer, an operation,
+    or any of the recognized commands. Thus nothing can be done with this token.
+    3. Divide by 0. This occurs when the user enters the division operator and the number by which the division
+    would occur is a 0. This is thus an undefined operation.
+
+Part B:
+    When I initially was completing this assignment, I did not realize the requirement of using a circular
+    array in order to achieve amortized time. Thus, implementing that aspect of the deque added a lot of
+    complexity. The most challenging thing for me was keeping track of the indices of the array internally
+    and then making sense of this in order to correctly implement the insertion and removal methods in
+    various situations of the circular array. After considering lots of particular cases and drawing out the
+    array to help visualize how the data was being structured internally, I was eventually able to pass all of
+    the test cases I had written.

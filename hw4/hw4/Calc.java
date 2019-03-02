@@ -52,7 +52,7 @@ public final class Calc {
                     stack.push(Integer.toString(second + first));
                 }
                 catch (EmptyException e) { // there wasn't 2 integers
-                    System.err.println("ERROR: Not enough integers in stack");
+                    System.err.println("ERROR: Not enough arguments.");
                 }
             }
             else if ("-".equals(token)) { // subtract
@@ -64,7 +64,7 @@ public final class Calc {
                     stack.push(Integer.toString(second - first));
                 }
                 catch (EmptyException e) { // there wasn't 2 integers
-                    System.err.println("ERROR: Not enough integers in stack");
+                    System.err.println("ERROR: Not enough arguments.");
                 }
             }
             else if ("*".equals(token)) { // multiply
@@ -76,7 +76,7 @@ public final class Calc {
                     stack.push(Integer.toString(second * first));
                 }
                 catch (EmptyException e) { // there wasn't 2 integers
-                    System.err.println("ERROR: Not enough integers in stack");
+                    System.err.println("ERROR: Not enough arguments.");
                 }
             }
             else if ("/".equals(token)) { // divide
@@ -90,10 +90,10 @@ public final class Calc {
                     stack.push(Integer.toString(second / first));
                 }
                 catch (EmptyException e) { // there wasn't 2 integers
-                    System.err.println("ERROR: Not enough integers in stack");
+                    System.err.println("ERROR: Not enough arguments.");
                 }
                 catch (ArithmeticException e) { // divide by 0
-                    System.err.println("ERROR: Can't Divide by 0");
+                    System.err.println("ERROR: Divide by 0");
                     stack.push(Integer.toString(first));
                     stack.push(Integer.toString(second));
                 }
@@ -107,7 +107,7 @@ public final class Calc {
                     stack.push(Integer.toString(second % first));
                 }
                 catch (EmptyException e) { // there wasn't 2 integers
-                    System.err.println("ERROR: Not enough integers in stack");
+                    System.err.println("ERROR: Not enough arguments.");
                 }
             }
             else if (".".equals(token)) { // pop and print top
@@ -118,7 +118,7 @@ public final class Calc {
                 return;
             }
             else { // none of the recognized tokens
-                System.err.println("ERROR: Invalid Input");
+                System.err.println("ERROR: bad token.");
             }
         }
     }
