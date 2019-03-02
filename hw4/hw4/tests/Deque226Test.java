@@ -104,6 +104,55 @@ public abstract class Deque226Test {
         assertEquals("Test2",dequeue.back());
     }
 
+    @Test
+    public void removeBackGetFront() {
+        dequeue.insertFront("Test1");
+        dequeue.insertBack("Test2");
+        dequeue.removeBack();
+        assertEquals("Test1", dequeue.front());
+    }
+
+    @Test
+    public void backAfterDouble() {
+        dequeue.insertFront("Test1");
+        dequeue.insertFront("Test2");
+        dequeue.insertFront("Test3");
+        assertEquals("Test1", dequeue.back());
+        dequeue.insertFront("Test4");
+        dequeue.insertBack("Test5");
+        assertEquals("Test5",dequeue.back());
+        assertEquals(5, dequeue.length());
+        assertEquals("Test4", dequeue.front());
+        dequeue.removeBack();
+        assertEquals("Test1", dequeue.back());
+    }
+
+    @Test
+    public void testToString() {
+        String empty = dequeue.toString();
+        assertEquals("[]", empty);
+        dequeue.insertFront("Test1");
+        dequeue.insertFront("Test2");
+        dequeue.insertFront("Test3");
+        String test1 = dequeue.toString();
+        assertEquals("[Test3, Test2, Test1]", test1);
+        dequeue.removeBack();
+        String test2 = dequeue.toString();
+        assertEquals("[Test3, Test2]", test2);
+        dequeue.insertFront("Test4");
+        String test3 = dequeue.toString();
+        assertEquals("[Test4, Test3, Test2]", test3);
+        dequeue.insertBack("Test5");
+        dequeue.insertBack("Test6");
+        dequeue.insertBack("Test7");
+        dequeue.removeFront();
+        assertEquals("Test7", dequeue.back());
+        assertEquals("Test3", dequeue.front());
+        assertEquals(5, dequeue.length());
+        String test4 = dequeue.toString();
+        assertEquals("[Test3, Test2, Test5, Test6, Test7]", test4);
+    }
+
 
 
 

@@ -49,13 +49,6 @@ public class ArrayDeque226<T> implements Deque226<T> {
         for (int i = this.used; i > 0; i--) {
             this.data.put(i, this.data.get(i - 1));
         }
-        /*T temp = null;
-        for (int i = 0; i < this.used; i++) {
-            //for (int i = 0; i < this.used; i++) {
-            T temp2 = this.data.get(i);
-            this.data.put(i, temp);
-            temp = temp2;
-        }*/
     }
 
     @Override
@@ -97,17 +90,6 @@ public class ArrayDeque226<T> implements Deque226<T> {
             this.data.put(front, t);
             this.used += 1;
             this.back += 1;
-            //if (front == 0) { // no space in front
-                /* SimpleArray<T> temp = new SimpleArray<T>(2 * this.used, null);
-                for (int i = 1; i <= this.used; i++) {
-                    temp.put(i, this.data.get(i - 1));
-                }
-                this.data = temp; */
-                //doubleArray();
-                //shiftRight();
-                //this.data.put(front, t);
-                //this.used += 1;
-                //this.front -= 1;
         }
         else if (front == 0) { // space in the back
                 shiftRight();
@@ -121,18 +103,10 @@ public class ArrayDeque226<T> implements Deque226<T> {
                 }
                 //this.front -= 1;
         }
-        else {
+        else { // space in the front
             this.data.put(front - 1, t);
             this.used += 1;
             this.front -= 1;
-            // space in the front
-            /*for (int i = 0; i < this.used; i++) {
-                this.data.put(i + 1, this.data.get(i));
-            }*/
-            //shiftRight();
-            //this.data.put(front, t);
-            //this.used += 1;
-            //this.front -= 1;
         }
     }
 
@@ -140,39 +114,25 @@ public class ArrayDeque226<T> implements Deque226<T> {
     public void insertBack(T t) {
         if (this.used == this.data.length()) { // out of space in back
             doubleArray();
-            //if (front == 0) { // no opening in front
-                /*SimpleArray<T> temp = new SimpleArray<T>(2 * this.used, null);
-                for (int i = 0; i < this.used; i++) {
-                    temp.put(i, this.data.get(i));
-                }
-                this.data = temp; */
-            //doubleArray();
             this.data.put(back + 1, t);
             this.used += 1;
             this.back += 1;
-            //}
         }
         else if (front == 0) { // just add it to the back
             if (this.used == 0) { // empty array
                 this.data.put(back, t);
                 this.used += 1;
-                //back += 1;
             }
             else {
                 this.data.put(back + 1, t);
                 this.used += 1;
                 back += 1;
             }
-            //front += 1;
-            //back = front - 1;
         }
         else { // open space in front, apply circular array
             this.data.put(front - 1, t);
             back = front - 1;
             this.used += 1;
-            //this.data.put(this.used, t);
-            //this.used += 1;
-            //back += 1;
         }
     }
 
@@ -181,9 +141,6 @@ public class ArrayDeque226<T> implements Deque226<T> {
         if (this.used == 0) {
             throw new EmptyException();
         }
-        /* for (int i = 0; i < this.used - 1; i++) {
-            this.data.put(i, this.data.get(i + 1));
-        }*/
         this.data.put(front, null);
         this.front += 1;
         this.used -= 1;
@@ -196,17 +153,38 @@ public class ArrayDeque226<T> implements Deque226<T> {
         }
         this.data.put(back, null);
         this.back -= 1;
-        //this.data.put(this.used - 1, null);
         this.used -= 1;
     }
 
     @Override
     public String toString() {
         String print = "[";
-        for (int i = 0; i < this.used; i++) {
-            print = print + this.data.get(i);
-            print = print + ", ";
+        int cap = this.data.length();
+        int rem = this.used;
+        for (int i = front; i < cap; i++) {
+            if (rem == 0) {
+                break;
+            }
+            if (this.data.get(i) != null) {
+                print = print + this.data.get(i);
+                print = print + ", ";
+                rem -= 1;
+            }
         }
+        for (int i = 0; i <= back; i++) {
+            if (rem == 0) {
+                break;
+            }
+            if (this.data.get(i) != null) {
+                print = print + this.data.get(i);
+                print = print + ", ";
+                rem -= 1;
+            }
+        }
+        if (print.length() > 2) {
+            print = print.substring(0, print.length() - 2); // del. last comma
+        }
+        print += "]";
         return print;
     }
 }
