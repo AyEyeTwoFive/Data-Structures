@@ -41,7 +41,7 @@ public class ArrayDeque226<T> implements Deque226<T> {
         this.back = prevLen - 1;
     }
 
-    /** Method to move all elements to the right to create space to insert in front.
+    /** move all elements to the right to create space to insert in front.
      *
      * @return
      */
@@ -92,16 +92,16 @@ public class ArrayDeque226<T> implements Deque226<T> {
             this.back += 1;
         }
         else if (front == 0) { // space in the back
-                shiftRight();
-                this.data.put(front, t);
-                if (this.used == 0) { // first time add
-                    this.used += 1;
-                }
-                else{
-                    this.used += 1;
-                    this.back += 1;
-                }
-                //this.front -= 1;
+            shiftRight();
+            this.data.put(front, t);
+            if (this.used == 0) { // first time add
+                this.used += 1;
+            }
+            else {
+                this.used += 1;
+                this.back += 1;
+            }
+            //this.front -= 1;
         }
         else { // space in the front
             this.data.put(front - 1, t);
