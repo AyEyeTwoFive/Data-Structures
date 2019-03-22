@@ -30,11 +30,20 @@ public class ArrayDeque226<T> implements Deque226<T> {
     public void doubleArray() {
         int prevLen = this.data.length();
         SimpleArray<T> temp = new SimpleArray<T>(2 * this.used, null);
+        int rem = this.used;
         for (int i = front; i < prevLen; i++) {
+            if (rem == 0) {
+                break;
+            }
             temp.put(i - front, this.data.get(i));
+            rem -= 1;
         }
-        for (int i = 0; i < back; i++) {
-            temp.put(prevLen + i, this.data.get(i));
+        for (int i = 0; i <= back; i++) {
+            if (rem == 0) {
+                break;
+            }
+            temp.put(prevLen + i - 1, this.data.get(i));
+            rem -= 1;
         }
         this.data = temp;
         this.front = 0;
@@ -86,53 +95,56 @@ public class ArrayDeque226<T> implements Deque226<T> {
     public void insertFront(T t) {
         if (this.used == this.data.length()) { // out of space
             doubleArray();
-            shiftRight();
+        }
+        if (this.used == 0) { // first time add
             this.data.put(front, t);
             this.used += 1;
-            this.back += 1;
+            return;
         }
-        else if (front == 0) { // space in the back
-            shiftRight();
-            this.data.put(front, t);
-            if (this.used == 0) { // first time add
+        used += 1;
+        if (front == 0) {
+            front = this.data.length() - 1;
+        }
+        else {
+            front -= 1;
+        }
+        this.data.put(front, t);
+        /*if (this.data.get(this.used - 1) == null) {
+                this.data.put(this.used, t);
+                this.front = this.used;
                 this.used += 1;
-            }
+        }
             else {
+                this.data.put(this.used, this.data.get(front));
+                this.data.put(this.front, t);
                 this.used += 1;
-                this.back += 1;
             }
-            //this.front -= 1;
-        }
         else { // space in the front
             this.data.put(front - 1, t);
             this.used += 1;
             this.front -= 1;
-        }
+        }*/
     }
 
     @Override
     public void insertBack(T t) {
         if (this.used == this.data.length()) { // out of space in back
             doubleArray();
-            this.data.put(back + 1, t);
+            /*this.data.put(back + 1, t);
             this.used += 1;
-            this.back += 1;
+            this.back += 1;*/
         }
-        else if (front == 0) { // just add it to the back
-            if (this.used == 0) { // empty array
-                this.data.put(back, t);
-                this.used += 1;
-            }
-            else {
-                this.data.put(back + 1, t);
-                this.used += 1;
-                back += 1;
-            }
-        }
-        else { // open space in front, apply circular array
-            this.data.put(front - 1, t);
-            back = front - 1;
+        if (this.used == 0) { // empty array
+            this.data.put(back, t);
             this.used += 1;
+        }
+        used += 1;
+        this.data.put(back + 1, t);
+        if (back == this.data.length() - 1) {
+            back = 0;
+        }
+        else {
+            back += 1;
         }
     }
 
@@ -141,9 +153,32 @@ public class ArrayDeque226<T> implements Deque226<T> {
         if (this.used == 0) {
             throw new EmptyException();
         }
-        this.data.put(front, null);
-        this.front += 1;
-        this.used -= 1;
+        if (this.used == 1) {
+            this.data.put(0, null);
+            this.used -= 1;
+        }
+        else {
+            if (front == this.data.length() - 1) {
+                this.data.put(front, null);
+                front = 0;
+                this.used -= 1;
+            }
+            else {
+                this.data.put(front, null);
+                front += 1;
+                this.used -= 1;
+            }
+        }
+        /*if (front > back) {
+            this.data.put(front, null);
+            this.front = 0;
+            this.used -= 1;
+        }
+        else {
+            this.data.put(front, null);
+            this.front += 1;
+            this.used -= 1;
+        }*/
     }
 
     @Override
@@ -151,9 +186,25 @@ public class ArrayDeque226<T> implements Deque226<T> {
         if (this.used == 0) {
             throw new EmptyException();
         }
-        this.data.put(back, null);
+        if (this.used == 1) {
+            this.data.put(0, null);
+            this.used -= 1;
+        }
+        else {
+            if (back == 0) {
+                this.data.put(back, null);
+                back = this.data.length() - 1;
+                this.used -= 1;
+            }
+            else {
+                this.data.put(back, null);
+                back -= 1;
+                this.used -= 1;
+            }
+        }
+        /*this.data.put(back, null);
         this.back -= 1;
-        this.used -= 1;
+        this.used -= 1;*/
     }
 
     @Override

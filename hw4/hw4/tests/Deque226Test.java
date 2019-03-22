@@ -97,6 +97,7 @@ public abstract class Deque226Test {
         assertEquals("Test1", dequeue.back());
         dequeue.insertFront("Test3");
         assertEquals("Test1", dequeue.back());
+        assertEquals("Test3", dequeue.front());
         dequeue.insertFront("Test4");
         assertEquals("Test4", dequeue.front());
         assertEquals("Test1", dequeue.back());
@@ -116,9 +117,15 @@ public abstract class Deque226Test {
     public void backAfterDouble() {
         dequeue.insertFront("Test1");
         dequeue.insertFront("Test2");
+        assertEquals("Test1", dequeue.back());
         dequeue.insertFront("Test3");
+        assertEquals(3, dequeue.length());
+        assertEquals("Test3", dequeue.front());
         assertEquals("Test1", dequeue.back());
         dequeue.insertFront("Test4");
+        assertEquals("Test4", dequeue.front());
+        assertEquals("Test1", dequeue.back());
+        //throw new IllegalArgumentException(dequeue.toString());
         dequeue.insertBack("Test5");
         assertEquals("Test5",dequeue.back());
         assertEquals(5, dequeue.length());
@@ -145,7 +152,7 @@ public abstract class Deque226Test {
         dequeue.insertBack("Test5");
         dequeue.insertBack("Test6");
         dequeue.insertBack("Test7");
-        dequeue.removeFront();
+        //dequeue.removeFront();
         assertEquals("Test7", dequeue.back());
         assertEquals("Test3", dequeue.front());
         assertEquals(5, dequeue.length());

@@ -2,7 +2,7 @@ Part A:
     Error Conditions:
     1. Not enough arguments. This error occurs when a user is trying to enter an operation but there
     are not enough integers currently in the stack. Specifically, you can not apply an arithmetic operation
-    if there are less than two integers in the stack.
+    if there are less than two integers in the stack, and can not pop with no integer in the stack.
     2. Bad token. This occurs if the token entered by the user is not recognized as an integer, an operation,
     or any of the recognized commands. Thus nothing can be done with this token.
     3. Divide by 0. This occurs when the user enters the division operator and the number by which the division

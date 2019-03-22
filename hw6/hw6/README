@@ -1,0 +1,8 @@
+Part A:
+    Errors:
+    1. Previous Function - I wrote a test where I tried the previous function on the element at the front of the
+    list. This should throw a Position Exception because obviously there is nothing before the first element.
+    However, the test failed because the exception was not thrown. This was because the previous function checked
+    whether the position in the argument was the last element in the list (just like the next method) to throw the
+    position exception, when it should have checked whether it was the first element. Thus, I changed line 165 from
+    "if (this.last(p)) {"  to "if (this.first(p)) {"

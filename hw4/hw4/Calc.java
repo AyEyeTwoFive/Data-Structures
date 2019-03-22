@@ -26,6 +26,10 @@ public final class Calc {
         }
         return true;
     }
+
+
+
+
     /**
      * The main function.
      * @param args Not used.
@@ -33,7 +37,7 @@ public final class Calc {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        ArrayStack<String> stack = new ArrayStack<String>();
+        Stack<String> stack = new ArrayStack<String>();
         String token; // store user commands
         while (scan.hasNext()) { // program cycles until user quits
             token = scan.next(); // get the next token
@@ -61,7 +65,7 @@ public final class Calc {
                     stack.pop();
                     int first = Integer.parseInt(stack.top());
                     stack.pop();
-                    stack.push(Integer.toString(second - first));
+                    stack.push(Integer.toString(first - second));
                 }
                 catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough arguments.");
@@ -87,7 +91,7 @@ public final class Calc {
                     stack.pop();
                     first = Integer.parseInt(stack.top());
                     stack.pop();
-                    stack.push(Integer.toString(second / first));
+                    stack.push(Integer.toString(first / second));
                 }
                 catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough arguments.");
@@ -104,15 +108,20 @@ public final class Calc {
                     stack.pop();
                     int first = Integer.parseInt(stack.top());
                     stack.pop();
-                    stack.push(Integer.toString(second % first));
+                    stack.push(Integer.toString(first % second));
                 }
                 catch (EmptyException e) { // there wasn't 2 integers
                     System.err.println("ERROR: Not enough arguments.");
                 }
             }
             else if (".".equals(token)) { // pop and print top
-                System.out.println(stack.top());
-                stack.pop();
+                try {
+                    System.out.println(stack.top());
+                    stack.pop();
+                }
+                catch (EmptyException e) { // nothing there
+                    System.err.println("ERROR: Not enough arguments.");
+                }
             }
             else if ("!".equals(token)) { // quit
                 return;
