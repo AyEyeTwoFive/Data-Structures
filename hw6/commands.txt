@@ -1,0 +1,3 @@
+javac -Xlint:all -cp ../../res/junit-4.12.jar:../../res/hamcrest-core-1.3.jar:. exceptions/*.java hw6/*.java hw6/tests/*.java
+
+java -ea -cp ../../res/junit-4.12.jar:../../res/hamcrest-core-1.3.jar:. org.junit.runner.JUnitCore hw6.tests.LinkedListTest

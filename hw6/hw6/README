@@ -6,3 +6,8 @@ Part A:
     whether the position in the argument was the last element in the list (just like the next method) to throw the
     position exception, when it should have checked whether it was the first element. Thus, I changed line 165 from
     "if (this.last(p)) {"  to "if (this.first(p)) {"
+    2. hasNext function within iterator - Checks whether current is at the tail, which is true for forward
+    iterators. However, if the iterator is a reverse iterator, it should instead check whether current is
+    at the head. I found this error through my "backwardIteration" test
+
+    

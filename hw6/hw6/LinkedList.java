@@ -76,7 +76,12 @@ public class LinkedList<T> implements List<T> {
 
         @Override
         public boolean hasNext() {
-            return this.current != LinkedList.this.sentinelTail;
+            if (this.forward) {
+                return this.current != LinkedList.this.sentinelTail;
+            }
+            else {
+                return this.current != LinkedList.this.sentinelHead;
+            }
         }
     }
 

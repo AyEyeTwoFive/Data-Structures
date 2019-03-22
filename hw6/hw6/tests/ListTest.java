@@ -220,12 +220,16 @@ public abstract class ListTest {
 
     @Test(expected=EmptyException.class)
     public void removeFrontWhenEmpty() {
+        Position<String> one = list.insertFront("One");
+        list.remove(one);
         assertTrue(list.empty());
         list.removeFront();
     }
 
     @Test(expected=EmptyException.class)
     public void removeBackWhenEmpty() {
+        Position<String> one = list.insertFront("One");
+        list.remove(one);
         assertTrue(list.empty());
         list.removeBack();
     }
@@ -321,6 +325,49 @@ public abstract class ListTest {
         Position<String> one = list.insertFront("One");
         list.removeFront();
         assertTrue(list.first(one));
+    }
+
+    @Test(expected=PositionException.class)
+    public void lastInvalid() {
+        Position<String> one = list.insertFront("One");
+        list.removeFront();
+        assertTrue(list.last(one));
+    }
+
+    @Test(expected=EmptyException.class)
+    public void frontWhenEmpty() {
+        assertTrue(list.empty());
+        list.front();
+    }
+
+    @Test(expected=EmptyException.class)
+    public void backWhenEmpty() {
+        assertTrue(list.empty());
+        list.back();
+    }
+
+    @Test
+    public void forwardIteration() {
+        Position<String> one = list.insertFront("One");
+        Position<String> two = list.insertFront("Two");
+        Position<String> three = list.insertFront("Three");
+        int c = 0;
+        for (String s: list) {
+            c++;
+        }
+        assertEquals(3, c);
+    }
+
+    @Test
+    public void backwardIteration() {
+        Position<String> one = list.insertFront("One");
+        Position<String> two = list.insertFront("Two");
+        Position<String> three = list.insertFront("Three");
+        int c = 3;
+        for (String s: list) {
+            c--;
+        }
+        assertEquals(0, c);
     }
 
 
