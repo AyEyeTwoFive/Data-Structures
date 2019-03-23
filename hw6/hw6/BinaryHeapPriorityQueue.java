@@ -29,8 +29,10 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         }
     }
 
-    // TODO: add array or ArrayList to hold the data
+
+    private ArrayList<T> data;
     private Comparator<T> cmp;
+    private boolean empty;
 
     /**
      * A binary heap using the "natural" ordering of T.
@@ -45,30 +47,57 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
      */
     public BinaryHeapPriorityQueue(Comparator<T> cmp) {
         this.cmp = cmp;
-        // TODO: initialize the data container
+        this.data = new ArrayList<T>();
+        this.data.add(null);  // "wasted" spot
+        this.empty = true;
     }
 
 
+    private boolean greater(T i, T j) {
+        return this.cmp.compare(i, j) > 0;
+    }
+
     @Override
     public void insert(T t) {
+        /*if (this.empty = true) { // first add
+            this.data.add(1, t); // add at position 1
+            this.empty = false;
+        }
+        else {
+            for (int i = 1; i < this.data.size(); i *= 2) {
+                // loop through parents first
+
+        }*/
         // TODO
+        // Percolate up
+        this.empty = false;
+        this.data.add(0, t);
+        int place;
+        for(place = this.data.size() - 1; greater(this.data.get(place / 2),t); place /= 2 ) {
+            this.data.add(place, this.data.get(place / 2));
+        }
+        this.data.add(place, t);
     }
 
     @Override
     public void remove() throws EmptyException {
-        // TODO
+        if (this.empty) {
+            throw new EmptyException();
+        }
+        this.data.remove(this.data.size() - 1); // remove last element
     }
 
     @Override
     public T best() throws EmptyException {
-        // TODO
-        return null;
+        if (this.empty) {
+            throw new EmptyException();
+        }
+        return this.data.get(this.data.size() - 1); // return last element
     }
 
     @Override
     public boolean empty() {
-        // TODO
-        return false;
+        return this.empty;
     }
 
 }

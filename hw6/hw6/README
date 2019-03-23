@@ -10,4 +10,3 @@ Part A:
     iterators. However, if the iterator is a reverse iterator, it should instead check whether current is
     at the head. I found this error through my "backwardIteration" test
 
-    

@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bf31e70-59e8-4749-a467-0bb19a21fd5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/hw6/hw6/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw4/exceptions/EmptyException.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw4/exceptions/EmptyException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw6/hw6/LinkedList$ListIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/LinkedList$ListIterator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw6/hw6/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/LinkedList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw6/hw6/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw6/hw6/BinaryHeapPriorityQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/BinaryHeapPriorityQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw6/hw6/BinaryHeapPriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/BinaryHeapPriorityQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw6/hw6/ListPriorityQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/ListPriorityQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw6/hw6/ListPriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/ListPriorityQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw6/hw6/README" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw6/hw6/tests/ListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/tests/ListTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw6/hw6/tests/ListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw6/hw6/tests/ListTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,9 +22,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw6/hw6/LinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3213">
-              <caret line="248" column="30" selection-start-line="248" selection-start-column="30" selection-end-line="248" selection-end-column="30" />
+            <state relative-caret-position="-1801">
+              <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#3641#3642#0" expanded="true" />
                 <element signature="e#3680#3681#0" expanded="true" />
                 <element signature="e#3721#3722#0" expanded="true" />
@@ -47,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw6/hw6/tests/ListTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="370" column="5" lean-forward="true" selection-start-line="370" selection-start-column="5" selection-end-line="370" selection-end-column="5" />
+            <state relative-caret-position="-832">
+              <caret line="300" column="34" selection-start-line="300" selection-start-column="34" selection-end-line="300" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,10 +58,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hw6/hw6/tests/PriorityQueueTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-152" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw6/hw6/ListPriorityQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+            <state relative-caret-position="374">
+              <caret line="50" column="5" selection-start-line="48" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
+              <folding>
+                <element signature="e#1206#1207#0" expanded="true" />
+                <element signature="e#1255#1256#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hw6/hw6/BinaryHeapPriorityQueue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+              <folding>
+                <element signature="e#1467#1468#0" expanded="true" />
+                <element signature="e#1516#1517#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,15 +93,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw6/hw6/SortedArrayPriorityQueue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-816" />
+            <state relative-caret-position="426">
+              <caret line="46" column="48" selection-start-line="45" selection-start-column="8" selection-end-line="46" selection-end-column="48" />
+            </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw6/hw6/README">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -104,9 +131,12 @@
         <option value="$PROJECT_DIR$/hw4/hw4/Calc.java" />
         <option value="$PROJECT_DIR$/hw4/hw4/tests/Deque226Test.java" />
         <option value="$PROJECT_DIR$/hw4/hw4/ArrayDeque226.java" />
-        <option value="$PROJECT_DIR$/hw6/hw6/LinkedList.java" />
         <option value="$PROJECT_DIR$/hw6/hw6/tests/ListTest.java" />
         <option value="$PROJECT_DIR$/hw6/hw6/README" />
+        <option value="$PROJECT_DIR$/hw6/hw6/LinkedList.java" />
+        <option value="$PROJECT_DIR$/hw6/hw6/test.java" />
+        <option value="$PROJECT_DIR$/hw6/hw6/ListPriorityQueue.java" />
+        <option value="$PROJECT_DIR$/hw6/hw6/BinaryHeapPriorityQueue.java" />
       </list>
     </option>
   </component>
@@ -156,7 +186,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552101377978" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553376166659" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -192,18 +222,18 @@
       <workItem from="1550957071716" duration="18475000" />
       <workItem from="1551391579590" duration="23923000" />
       <workItem from="1552966590269" duration="283000" />
-      <workItem from="1553071470825" duration="19568000" />
+      <workItem from="1553071470825" duration="32928000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85304000" />
+    <option name="totallyTimeSpent" value="98664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="733" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26153848" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23643725" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -359,18 +389,29 @@
     <entry file="file://$PROJECT_DIR$/hw6/hw6/tests/LinkedListTest.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw6/hw6/ListPriorityQueue.java">
+    <entry file="file://$PROJECT_DIR$/hw6/hw6/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw6/hw6/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hw6/hw6/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="248" column="30" selection-start-line="248" selection-start-column="30" selection-end-line="248" selection-end-column="30" />
+        <state relative-caret-position="-1801">
+          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#3641#3642#0" expanded="true" />
             <element signature="e#3680#3681#0" expanded="true" />
             <element signature="e#3721#3722#0" expanded="true" />
@@ -391,23 +432,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hw6/hw6/tests/ListTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="370" column="5" lean-forward="true" selection-start-line="370" selection-start-column="5" selection-end-line="370" selection-end-column="5" />
+        <state relative-caret-position="-832">
+          <caret line="300" column="34" selection-start-line="300" selection-start-column="34" selection-end-line="300" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hw6/hw6/tests/BinaryHeapPriorityQueueTest.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/hw6/hw6/SortedArrayPriorityQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-816" />
+        <state relative-caret-position="426">
+          <caret line="46" column="48" selection-start-line="45" selection-start-column="8" selection-end-line="46" selection-end-column="48" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw6/hw6/README">
+    <entry file="file://$PROJECT_DIR$/hw6/hw6/tests/PriorityQueueTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="-152" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw6/hw6/ListPriorityQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="50" column="5" selection-start-line="48" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
+          <folding>
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw6/hw6/BinaryHeapPriorityQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="85" column="9" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+          <folding>
+            <element signature="e#1467#1468#0" expanded="true" />
+            <element signature="e#1516#1517#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

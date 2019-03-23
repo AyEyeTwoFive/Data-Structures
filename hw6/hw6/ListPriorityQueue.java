@@ -26,12 +26,14 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
 
     private List<T> list;
     private Comparator<T> cmp;
+    private boolean empty;
 
     /**
      * An unordered List PQ using the "natural" ordering of T.
      */
     public ListPriorityQueue() {
         this(new DefaultComparator<>());
+        this.empty = true;
     }
 
     /**
@@ -41,29 +43,50 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
     public ListPriorityQueue(Comparator<T> cmp) {
         this.list= new LinkedList<T>();
         this.cmp = cmp;
+        this.empty = true;
     }
 
+    private boolean greater(T i, T j) {
+        return this.cmp.compare(i, j) > 0;
+    }
 
     @Override
     public void insert(T t) {
-        // TODO
+        if (this.empty) { //empty
+            this.list.insertBack(t);
+            this.empty = false;
+            return;
+        }
+        this.empty = false;
+        Position<T> cur = this.list.front(); // start at beginning
+        while (!(this.list.last(cur))) { // keep looking until we reach end
+            if (greater(cur.get(),t)) {
+                this.list.insertBefore(cur, t);
+                return;
+                // if t is less than thing at cur, insert t before cur
+                // (lowest at head, greatest at tail)
+            }
+            cur = this.list.next(cur);
+        }
+        this.list.insertBack(t);
+        // if we get all the way to the end, just insert t at the back
+        // because its the greatest
     }
 
     @Override
     public void remove() throws EmptyException {
-        // TODO
+        this.list.removeBack(); // remove the thing at back (greatest)
     }
 
     @Override
     public T best() throws EmptyException {
-        // TODO
-        return null;
+        return this.list.back().get(); // return back (greatest)
     }
 
     @Override
     public boolean empty() {
-        // TODO
-        return false;
+        // if we've inserted, this becomes false
+        return this.empty;
     }
 
 }
