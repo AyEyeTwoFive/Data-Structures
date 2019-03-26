@@ -57,26 +57,40 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         return this.cmp.compare(i, j) > 0;
     }
 
+    private int bestIndex() {
+        int best;
+        int i = this.data.size() - 1;
+        try { if (greater(this.data.get(i - 1), this.data.get(i))) {
+            best = i - 1;
+        } else best = i; }
+        catch (NullPointerException e) {
+            best = i;
+        }
+        return best;
+    }
+
+
+    private void bubble_up() {
+        int i = this.data.size() - 1;
+        while (i / 2 > 0) {
+            if (greater(this.data.get(i/2), this.data.get(i))) {
+                T temp = this.data.get(i / 2);
+                this.data.set(i / 2, this.data.get(i));
+                this.data.set(i, temp);
+            }
+            i = i / 2;
+        }
+    }
+
+    public T get(int i) {
+        return this.data.get(i);
+    }
+
     @Override
     public void insert(T t) {
-        /*if (this.empty = true) { // first add
-            this.data.add(1, t); // add at position 1
-            this.empty = false;
-        }
-        else {
-            for (int i = 1; i < this.data.size(); i *= 2) {
-                // loop through parents first
-
-        }*/
-        // TODO
-        // Percolate up
         this.empty = false;
-        this.data.add(0, t);
-        int place;
-        for(place = this.data.size() - 1; greater(this.data.get(place / 2),t); place /= 2 ) {
-            this.data.add(place, this.data.get(place / 2));
-        }
-        this.data.add(place, t);
+        this.data.add(t);
+        this.bubble_up();
     }
 
     @Override
@@ -84,7 +98,7 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         if (this.empty) {
             throw new EmptyException();
         }
-        this.data.remove(this.data.size() - 1); // remove last element
+        this.data.remove(bestIndex()); // remove best element
     }
 
     @Override
@@ -92,7 +106,7 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         if (this.empty) {
             throw new EmptyException();
         }
-        return this.data.get(this.data.size() - 1); // return last element
+        return this.data.get(bestIndex()); // return best element
     }
 
     @Override
