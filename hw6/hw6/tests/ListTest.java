@@ -298,7 +298,7 @@ public abstract class ListTest {
         Position<String> afterOne = list.next(one);
     }
 
-    @Test(expected=PositionException.class)
+    @Test//(expected=PositionException.class)
     public void gettingPreviousAtFront() {
         Position<String> one = list.insertFront("One");
         Position<String> two = list.insertFront("Two");

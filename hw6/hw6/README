@@ -10,3 +10,13 @@ Part A:
     iterators. However, if the iterator is a reverse iterator, it should instead check whether current is
     at the head. I found this error through my "backwardIteration" test
 
+Part D:
+    My approach to generating the datasets was to use the filewriter and random packages. I generated 5 files
+    of data as follows
+    1. 100,000 integers, all randomly generated between 0 - 100
+    2. 100,000 integers, 25% chance of being a 1, else randomly generated between 0 - 100
+    3. 100,000 integers, 50% chance of being a 1, else randomly generated between 0 - 100
+    4. 100,000 integers, 75% chance of being a 1, else randomly generated between 0 - 100
+    5. 100,000 integers, all 1
+    I ran the unique program on these 5 datasets with each implementation of the priority queue. As expected, the
+    number of unique integers outputted back decreased with each file, until only a 1 was printed for file 5.

@@ -26,14 +26,12 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
 
     private List<T> list;
     private Comparator<T> cmp;
-    private boolean empty;
 
     /**
      * An unordered List PQ using the "natural" ordering of T.
      */
     public ListPriorityQueue() {
         this(new DefaultComparator<>());
-        this.empty = true;
     }
 
     /**
@@ -43,7 +41,6 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
     public ListPriorityQueue(Comparator<T> cmp) {
         this.list= new LinkedList<T>();
         this.cmp = cmp;
-        this.empty = true;
     }
 
     private boolean greater(T i, T j) {
@@ -52,12 +49,10 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
 
     @Override
     public void insert(T t) {
-        if (this.empty) { //empty
+        if (this.empty()) { //empty
             this.list.insertBack(t);
-            this.empty = false;
             return;
         }
-        this.empty = false;
         Position<T> cur = this.list.front(); // start at beginning
         while (!(this.list.last(cur))) { // keep looking until we reach end
             if (greater(cur.get(),t)) {
@@ -85,8 +80,7 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
 
     @Override
     public boolean empty() {
-        // if we've inserted, this becomes false
-        return this.empty;
+        return this.list.empty();
     }
 
 }

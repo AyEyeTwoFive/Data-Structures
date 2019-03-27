@@ -32,7 +32,7 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
 
     private ArrayList<T> data;
     private Comparator<T> cmp;
-    private boolean empty;
+    private int size;
 
     /**
      * A binary heap using the "natural" ordering of T.
@@ -49,7 +49,7 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         this.cmp = cmp;
         this.data = new ArrayList<T>();
         this.data.add(null);  // "wasted" spot
-        this.empty = true;
+        this.size = 0;
     }
 
 
@@ -58,13 +58,14 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
     }
 
     private int bestIndex() {
-        int best;
-        int i = this.data.size() - 1;
-        try { if (greater(this.data.get(i - 1), this.data.get(i))) {
-            best = i - 1;
-        } else best = i; }
-        catch (NullPointerException e) {
-            best = i;
+        int best = this.data.size() - 1;
+        if (best > 0) {
+            try {
+                if (greater(this.data.get(best - 1), this.data.get(best))) {
+                    best -= 1;
+                }
+            }
+            catch (NullPointerException e) { }
         }
         return best;
     }
@@ -73,7 +74,7 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
     private void bubble_up() {
         int i = this.data.size() - 1;
         while (i / 2 > 0) {
-            if (greater(this.data.get(i/2), this.data.get(i))) {
+            if (greater(this.data.get(i), this.data.get(i/2))) {
                 T temp = this.data.get(i / 2);
                 this.data.set(i / 2, this.data.get(i));
                 this.data.set(i, temp);
@@ -82,36 +83,67 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         }
     }
 
+    public void swapDown() {
+        int i = 1;
+        int swapped = 0;
+        while (i * 2 < this.data.size()) {
+            if (i * 2 + 1 < this.data.size()) {
+                if (greater(this.data.get(i * 2 + 1), this.data.get(i * 2))) {
+                    swapped = i * 2 + 1;
+                }
+                else {
+                    swapped = i * 2;
+                }
+            }
+            else {
+                swapped = i * 2;
+            }
+            if (greater(this.data.get(swapped), this.data.get(i))) {
+                T temp = this.data.get(swapped);
+                this.data.set(swapped, this.data.get(i));
+                this.data.set(i, temp);
+            }
+            else {
+                break;
+            }
+            i = swapped;
+        }
+    }
+
+
     public T get(int i) {
         return this.data.get(i);
     }
 
     @Override
     public void insert(T t) {
-        this.empty = false;
+        this.size += 1;
         this.data.add(t);
         this.bubble_up();
     }
 
     @Override
     public void remove() throws EmptyException {
-        if (this.empty) {
+        if (this.empty()) {
             throw new EmptyException();
         }
-        this.data.remove(bestIndex()); // remove best element
+        this.data.set(1, this.data.get(size - 1)); // remove best element
+        this.data.remove(size - 1);
+        this.size -= 1;
+        this.swapDown();
     }
 
     @Override
     public T best() throws EmptyException {
-        if (this.empty) {
+        if (this.empty()) {
             throw new EmptyException();
         }
-        return this.data.get(bestIndex()); // return best element
+        return this.data.get(1); // return best element
     }
 
     @Override
     public boolean empty() {
-        return this.empty;
+        return this.size == 0;
     }
 
 }
