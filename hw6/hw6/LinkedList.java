@@ -253,7 +253,8 @@ public class LinkedList<T> implements List<T> {
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append("[");
-        for (Node<T> n = this.sentinelHead.next; n != this.sentinelTail; n = n.next) {
+        for (Node<T> n = this.sentinelHead.next; n != this.sentinelTail;
+             n = n.next) {
             s.append(n.data);
             if (n.next != this.sentinelTail) {
                 s.append(", ");

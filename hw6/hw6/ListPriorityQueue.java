@@ -1,14 +1,13 @@
 package hw6;
 
 import exceptions.EmptyException;
-
 import java.util.Comparator;
 
 /**
  * Priority queue implemented using our (unordered) abstract List,
  * specifically with a LinkedList implementation.
  *
- * TODO: write the missing method bodies below. 
+ * TODo: write the missing method bodies below.
  * (Hint: create helper method(s)!)
  *
  * @param <T> Element type.
@@ -39,7 +38,7 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
      * @param cmp Comparator to use.
      */
     public ListPriorityQueue(Comparator<T> cmp) {
-        this.list= new LinkedList<T>();
+        this.list = new LinkedList<T>();
         this.cmp = cmp;
     }
 
@@ -55,7 +54,7 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
         }
         Position<T> cur = this.list.front(); // start at beginning
         while (!(this.list.last(cur))) { // keep looking until we reach end
-            if (greater(cur.get(),t)) {
+            if (greater(cur.get(), t)) {
                 this.list.insertBefore(cur, t);
                 return;
                 // if t is less than thing at cur, insert t before cur

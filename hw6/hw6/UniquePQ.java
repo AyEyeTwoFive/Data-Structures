@@ -23,9 +23,8 @@ public final class UniquePQ {
      *  @param args Command line arguments (ignored).
      */
     public static void main(String[] args) {
-        data = new BinaryHeapPriorityQueue<Integer>();
+        data = new ListPriorityQueue<Integer>();
         Scanner scanner = new Scanner(System.in);
-
         while (scanner.hasNext()) {
             String s = scanner.next();
             try {

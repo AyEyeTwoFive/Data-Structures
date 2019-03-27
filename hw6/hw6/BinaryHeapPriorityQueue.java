@@ -4,7 +4,6 @@ import exceptions.EmptyException;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 
 /**
  * Priority queue implemented as a binary heap.
@@ -14,7 +13,7 @@ import java.util.List;
  * ArrayList; wasting one reference is an okay price to pay for nicer
  * code.
  * 
- * TODO: implement the missing methods. (Hint: create helper methods!)
+ * TODd: implement the missing methods. (Hint: create helper methods!)
  *
  * @param <T> Element type.
  */
@@ -57,7 +56,7 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         return this.cmp.compare(i, j) > 0;
     }
 
-    private int bestIndex() {
+    /*private int bestIndex() {
         int best = this.data.size() - 1;
         if (best > 0) {
             try {
@@ -65,16 +64,16 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
                     best -= 1;
                 }
             }
-            catch (NullPointerException e) { }
+            catch (NullPointerException e) {  }
         }
         return best;
-    }
+    }*/
 
 
-    private void bubble_up() {
+    private void bubbleUp() {
         int i = this.data.size() - 1;
         while (i / 2 > 0) {
-            if (greater(this.data.get(i), this.data.get(i/2))) {
+            if (greater(this.data.get(i), this.data.get(i / 2))) {
                 T temp = this.data.get(i / 2);
                 this.data.set(i / 2, this.data.get(i));
                 this.data.set(i, temp);
@@ -83,6 +82,9 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         }
     }
 
+    /** Code to start at root and swap down with children.
+     *
+     */
     public void swapDown() {
         int i = 1;
         int swapped = 0;
@@ -110,7 +112,11 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
         }
     }
 
-
+    /**
+     * Just a get method for debugging.
+     * @param i index
+     * @return the item at that index in the heap array
+     */
     public T get(int i) {
         return this.data.get(i);
     }
@@ -119,7 +125,7 @@ public class BinaryHeapPriorityQueue<T extends Comparable<? super T>>
     public void insert(T t) {
         this.size += 1;
         this.data.add(t);
-        this.bubble_up();
+        this.bubbleUp();
     }
 
     @Override
