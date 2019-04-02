@@ -46,7 +46,31 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
         return this.cmp.compare(i, j) > 0;
     }
 
-    @Override
+
+    /** A method to find the position object with the best element.
+     *
+     * @return the position
+     */
+    private Position<T> bestIndex() {
+        T max = this.list.front().get(); // start at beginning
+        Position<T> cur = this.list.front();
+        Position<T> maxPos = this.list.front();
+        while (!(this.list.last(cur))) { // keep looking until we reach end
+            if (greater(cur.get(), max)) { // replace max if greater
+                max = cur.get();
+                maxPos = cur;
+            }
+            cur = this.list.next(cur);
+        }
+        if (greater(this.list.back().get(), max)) {
+            maxPos = this.list.back();
+        }
+        return maxPos;
+        // if we get all the way to the end, just insert t at the back
+        // because its the greatest
+    }
+
+    /*@Override
     public void insert(T t) {
         if (this.empty()) { //empty
             this.list.insertBack(t);
@@ -54,7 +78,7 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
         }
         Position<T> cur = this.list.front(); // start at beginning
         while (!(this.list.last(cur))) { // keep looking until we reach end
-            if (greater(cur.get(), t)) {
+            if (greaterOrEqual(cur.get(), t)) {
                 this.list.insertBefore(cur, t);
                 return;
                 // if t is less than thing at cur, insert t before cur
@@ -65,16 +89,34 @@ public class ListPriorityQueue<T extends Comparable<? super T>>
         this.list.insertBack(t);
         // if we get all the way to the end, just insert t at the back
         // because its the greatest
+    }*/
+
+    @Override
+    public void insert(T t) {
+        this.list.insertBack(t);
     }
+
+    /*@Override
+    public void remove() throws EmptyException {
+        this.list.removeBack(); // remove the thing at back (greatest)
+    }*/
+
+
 
     @Override
     public void remove() throws EmptyException {
-        this.list.removeBack(); // remove the thing at back (greatest)
+        if (this.empty()) {
+            throw new EmptyException();
+        }
+        this.list.remove(this.bestIndex()); // remove
     }
 
     @Override
     public T best() throws EmptyException {
-        return this.list.back().get(); // return back (greatest)
+        if (this.empty()) {
+            throw new EmptyException();
+        }
+        return this.bestIndex().get(); // return
     }
 
     @Override

@@ -8,15 +8,87 @@ Part A:
     "if (this.last(p)) {"  to "if (this.first(p)) {"
     2. hasNext function within iterator - Checks whether current is at the tail, which is true for forward
     iterators. However, if the iterator is a reverse iterator, it should instead check whether current is
-    at the head. I found this error through my "backwardIteration" test
+    at the head. I found this error through my "backwardIteration" test.
+
+Part B:
+    Made it sorted at first, saw Piazza post, changed it to unsorted.
+
+Part C:
+    Made it a max binary heap.
 
 Part D:
     My approach to generating the datasets was to use the filewriter and random packages. I generated 5 files
     of data as follows
-    1. 100,000 integers, all randomly generated between 0 - 100
-    2. 100,000 integers, 25% chance of being a 1, else randomly generated between 0 - 100
-    3. 100,000 integers, 50% chance of being a 1, else randomly generated between 0 - 100
-    4. 100,000 integers, 75% chance of being a 1, else randomly generated between 0 - 100
-    5. 100,000 integers, all 1
+    1. 30,000 integers, all randomly generated between 0 - 100
+    2. 30,000 integers, 25% chance of being a 1, else randomly generated between 0 - 100
+    3. 30,000 integers, 50% chance of being a 1, else randomly generated between 0 - 100
+    4. 30,000 integers, 75% chance of being a 1, else randomly generated between 0 - 100
+    5. 30,000 integers, all 1
+    6. 30,000 integers, 75% chance of being a 100, else randomly generated between 0 - 100
+    7. 30,000 integers, all 100
     I ran the unique program on these 5 datasets with each implementation of the priority queue. As expected, the
     number of unique integers outputted back decreased with each file, until only a 1 was printed for file 5.
+
+    The following are the run times (s) obtained for each implementation with each of these datasets, using
+    the time command in linux:
+    1. SA- 0.609, L- 26.063, BH- 0.880
+    2. SA- 0.618, L- 21.657, BH- 0.582
+    3. SA- 0.875, L- 26.753, BH- 0.509
+    4. SA- 0.734, L- 24.564, BH- 0.528
+    5. SA- 0.611, L- 21.819, BH- 0.373
+    6. SA- 0.719, L- 29.111, BH- 0.510
+    7. SA- 0.579, L- 21.294, BH- 0.610
+
+     It should be noted that all of these times are variable, as even running the same test multiple times gave
+        different times each run, and the random run-to-run variability seems even greater than the differences
+        between some of the shorter times (ex. for sorted array and binary heap). In fact, it might not even be
+        possible to draw absolutely true conclusions from these run times.
+
+    As expected, the list (unsorted) was by far the slowest implementation, which makes sense because it
+    requires N time both to remove and to find the best. Thus, while the scanning and inserting part for
+    the list was likely fast, the second loop to repeatedly find and remove the best value until the array
+    was empty must have added a lot of time to those runs.
+
+    Both the sorted array and binary heap implementations worked rather fast, as expected. While the
+    inserting part for the sorted array implementation might be slow since it takes N time, the finding and
+    removing part is very fast since they are both in constant time. The binary heap, meanwhile, takes log N
+    time to insert, constant time to find and log N time to remove. Thus, overall, it seems like binary heap
+    should be the fastest implementation which does appear to be the case, possibly with some small exceptions.
+    It seemed like when there weren't many repeated values, sorted array may have been slightly faster or
+    comparable to binary heap. However, it seems like when there are many repeat values, binary heap is
+    certainly faster. This might be because for datasets where value that I made to repeat was
+    a 1, this was smaller than most of the other numbers. Thus, for inserting with the sorted array, the
+    effect of the N time insert was very consequential since the spot to insert a 1 was at the end (the
+    find method checks whether the thing being inserted is strictly greater than the things stored
+    in the array in each spot, so it probably checks for each spot all the way to the end of the array).
+    However, for the removing part with the binary heap, the log N time may have not been as consequential
+    because the 1 would have already been essentially in the right place after it is added, so not a lot of
+    swapping is necessary.
+
+    I theorized that the sorted array implementation would be really fast in the case that the dataset was
+    strictly descending, because the N time for the insert would essentially become constant time since the
+    spot to insert is found at the beginning of the array every time. I tested this by making a dataset of
+    30,000 unique strictly descending integers. I got a time of about 15 s for sorted array, 1m 45s for list,
+    and 12.7 s for binary heap). Thus sorted array is pretty fast in this case but binary heap still seems to
+    be faster.
+
+    I also made a dataset of 30,000 strictly ascending integers, and the runtimes were 17.429 s for sorted array,
+    1 m 6 s for list, and 19.754 s for BH. In this case, it seems that sorted array was actually slightly better
+    than binary heap. Either my intuition was wrong, and the ordering of the sorted array implementation is the
+    opposite of what I was thinking, or this is coincidence.
+
+    It seems like the unsorted list implementation is just generally bad and never performs as well as the sorted
+    array or binary heap for any type of dataset.
+
+    For a set implementation of unique, I expected that it would take even longer than any of these priority queue
+    implementations, since the insert, find and remove operations are essentially all at least N time. However,
+    after running a few tests of the hw5 unique program with ArraySet implementation, it seems like it is actually
+    pretty fast (runtimes of 0.4-0.5 s) and comparable to sorted array and binary heap priority queues.
+    I think this might be because the hw5 unique does not print the output in sorted order, while the priority
+    queues do. I think because of the sorting aspect, the version of unique that uses priority queues is
+    slower than it has to be.
+
+    The hw1 version of unique is very fast (significantly faster than any of the priority queue implementations
+    of ArraySet) with runtimes of less than 0.2 s. I think this is because the hw1 version did the bare
+    minimum needed to operate the unique program and did not rely on any data structures that it didn't need to.
+
