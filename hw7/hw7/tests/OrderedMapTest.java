@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
  *
  */
 public abstract class OrderedMapTest {
-    private OrderedMap<Integer, String> map;
+    protected OrderedMap<Integer, String> map;
 
     protected abstract OrderedMap<Integer, String> createMap();
 

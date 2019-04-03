@@ -1,0 +1,31 @@
+Part A:
+    AVL Tree Testing: I first wanted to test each of the possible types of rotations in the simplest way possible. The
+    4 main rotation types are left and right single rotations, and left-right or right-left double rotation. Thus, I
+    created 4 tests cases for each of these by simply inserting the keys one, two, and three in different orders to
+    test the different rotation types as follows: 1) one, two, three for left rotation, 2) three, two, one for right
+    rotation, 3) three, one, two for LR rotation, and 4) one, three, two for RL rotation. These are illustrated below:
+
+    1.    1                                   2
+           \                                 / \
+             2       ------------>          1   3
+              \       left rotation
+               3         of 1
+
+    2.       3
+            /                              2
+           2     ------------->           / \
+          /     right rotation           1   3
+         1         of 3
+
+    3.    3                               3
+         /                               /
+        1       ------------->          2        -------------->          2
+         \      left rotation          /         right rotation          / \
+          2          of 1             1              of 3               1   3
+
+    4.    1                            1
+           \                            \
+            2    ------------->          2        -------------->          2
+           /     right rotation           \         left rotation         / \
+          3          of 2                  3          of 1               1   3
+
