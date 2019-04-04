@@ -19,21 +19,16 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
         int height;
 
         // Constructor to make node creation easier to read.
-        Node(K k, V v, int h) {
+        Node(K k, V v) {
             // left and right default to null
             this.key = k;
             this.value = v;
-            this.height = h;
+            this.height = 0;
         }
 
         // Return the balance factor for this node's subtree
         public int balance() {
-            return this.left.height() - this.right.height();
-        }
-
-        // Return the height for this node's subtree
-        public int height() {
-            return this.height;
+            return height(this.left) - height(this.right);
         }
 
         // Just for debugging purposes.
@@ -58,7 +53,7 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
     }
 
     public int height() {
-        return this.root.height();
+        return height(this.root);
     }
 
 
@@ -215,6 +210,56 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
         return n;
     }
 
+    /**
+     * Internal method to find the smallest item in a subtree.
+     * @param t the node that roots the tree.
+     * @return node containing the smallest item.
+     */
+    private Node min(Node n)
+    {
+        if(n == null )
+            return n;
+
+        while(n.left != null)
+            n = n.left;
+        return n;
+    }
+
+    @Override
+    public V remove(K k)
+    {
+        this.size -= 1;
+        Node n = this.findForSure(k);
+        root = remove(k, root);
+        return n.value;
+    }
+
+    /**
+     * Internal method to remove from a subtree.
+     * @param x the item to remove.
+     * @param t the node that roots the subtree.
+     * @return the new root of the subtree.
+     */
+    private Node remove(K k, Node n)
+    {
+        if(n == null )
+            return n;   // Item not found; do nothing
+        int compareResult = k.compareTo(n.key);
+        if( compareResult < 0 )
+            n.left = remove(k, n.left);
+        else if( compareResult > 0 )
+            n.right = remove(k, n.right);
+        else if( n.left != null && n.right != null ) // Two children
+        {
+            n.key = min(n.right).key;
+            n.right = remove(n.key, n.right);
+        }
+        else
+            n = (n.left != null) ? n.left : n.right;
+        return balance(n);
+    }
+
+    /*
     // Remove node with given key from subtree rooted at
     // given node; return changed subtree with given key
     // missing. (Once again doing this recursively makes
@@ -268,7 +313,7 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
         this.root = this.remove(this.root, k);
         this.size -= 1;
         return n.value;
-    }
+    }*/
 
     // Recursively add keys from subtree rooted at given node
     // into the given list.
