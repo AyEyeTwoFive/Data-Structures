@@ -124,6 +124,16 @@ public abstract class OrderedMapTest {
     }
 
     @Test
+    public void removeTest() {
+        map.insert((Integer) 2, "B");
+        map.insert((Integer) 1, "S");
+        map.insert((Integer) 3, "Q");
+        assertEquals("{1: S, 2: B, 3: Q}", map.toString());
+        map.remove((Integer) 2);
+        assertEquals("{1: S, 3: Q}", map.toString());
+    }
+
+    @Test
     public void testOrdered() {
         map.insert((Integer) 2, "B");
         map.insert((Integer) 9, "S");

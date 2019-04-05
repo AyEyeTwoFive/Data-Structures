@@ -240,22 +240,29 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
      * @param t the node that roots the subtree.
      * @return the new root of the subtree.
      */
-    private Node remove(K k, Node n)
-    {
-        if(n == null )
+    private Node remove(K k, Node n) {
+        if(n == null)
             return n;   // Item not found; do nothing
         int compareResult = k.compareTo(n.key);
-        if( compareResult < 0 )
+        if(compareResult < 0)
             n.left = remove(k, n.left);
-        else if( compareResult > 0 )
+        else if(compareResult > 0)
             n.right = remove(k, n.right);
-        else if( n.left != null && n.right != null ) // Two children
+        else if(n.left != null && n.right != null ) // Two children
         {
             n.key = min(n.right).key;
+            n.value = min(n.right).value;
             n.right = remove(n.key, n.right);
         }
-        else
-            n = (n.left != null) ? n.left : n.right;
+        else {
+            if (n.left == null) {
+                n = n.right;
+            }
+            else {
+                n = n.left;
+            }
+            return n;
+        }
         return balance(n);
     }
 
