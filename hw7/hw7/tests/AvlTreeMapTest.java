@@ -9,6 +9,8 @@ import static org.junit.Assert.assertTrue;
 import hw7.Map;
 import hw7.OrderedMap;
 import hw7.AvlTreeMap;
+import java.util.Random;
+import java.util.ArrayList;
 
 /** Instantiate the AvlTreeMap to test. */
 public class AvlTreeMapTest extends OrderedMapTest {
@@ -21,6 +23,7 @@ public class AvlTreeMapTest extends OrderedMapTest {
     protected AvlTreeMap<Integer, String> avl = new AvlTreeMap<>();
 
     Integer three = 3;
+    Random rand = new Random();
 
     @Test
     public void leftRotation() {
@@ -68,16 +71,10 @@ public class AvlTreeMapTest extends OrderedMapTest {
         avl.insert((Integer) 1, "A");
         avl.insert((Integer) 3, "B");
         avl.insert((Integer) 5, "C");
-        assertEquals(3, avl.size());
-        assertEquals(1, avl.height());
-        assertEquals(0, avl.balance());
         avl.insert((Integer) 7, "D");
         avl.insert((Integer) 9, "E");
         avl.insert((Integer) 11, "F");
         avl.insert((Integer) 13, "G");
-        assertEquals(7, avl.size());
-        assertEquals(2, avl.height());
-        assertEquals(0, avl.balance());
         avl.insert((Integer) 15, "H");
         avl.insert((Integer) 17, "I");
         avl.insert((Integer) 19, "J");
@@ -86,9 +83,6 @@ public class AvlTreeMapTest extends OrderedMapTest {
         avl.insert((Integer) 25, "M");
         avl.insert((Integer) 27, "N");
         avl.insert((Integer) 29, "O");
-        assertEquals(15, avl.size());
-        assertEquals(3, avl.height());
-        assertEquals(0, avl.balance());
         avl.insert((Integer) 31, "P");
         avl.insert((Integer) 2, "Q");
         avl.insert((Integer) 6, "R");
@@ -105,9 +99,42 @@ public class AvlTreeMapTest extends OrderedMapTest {
         avl.insert((Integer) 8, "#");
         avl.insert((Integer) 16, "$");
         avl.insert((Integer) 24, "%");
-        assertEquals(1,avl.printRoot());
         assertEquals(31, avl.size());
-        assertEquals(4, avl.height());
-        assertEquals(0, avl.balance());
+        assertTrue(avl.height() <= 2*(Math.log(31) / Math.log(2))); // height <= 2* log base 2 of N
+        assertTrue(Math.abs(avl.balance()) <= 1);
     }
+
+    @Test
+    public void randomInsertAndRemove() {
+        for (int i = 1; i < 100; i++) { // start with 100 inserts
+            avl.insert((Integer) i, "A");
+        }
+        assertTrue(avl.height() <= 2*(Math.log(31) / Math.log(2)));
+        assertTrue(Math.abs(avl.balance()) <= 1);
+        assertEquals(99, avl.size());
+        int added = 99;
+        ArrayList<Integer> removed = new ArrayList<Integer>();
+        for (int i = 0; i < 100; i++) {
+            int decision = rand.nextInt(2); // remove or insert?
+            if (decision == 0) { // let's insert
+                added += 1;
+                avl.insert((Integer) added, "A");
+                assertTrue(avl.height() <= 2 * (Math.log(31) / Math.log(2)));
+                assertTrue(Math.abs(avl.balance()) <= 1);
+            }
+            else { //let's remove
+                int which = rand.nextInt(added); //pick random
+                while (removed.contains(which) || which == 0) { //already removed
+                    which = rand.nextInt(added);
+                }
+                removed.add(which);
+                String temp = avl.get(which);
+                assertEquals(temp, avl.remove(which));
+            }
+            assertTrue(avl.height() <= 2*(Math.log(31) / Math.log(2)));
+            assertTrue(Math.abs(avl.balance()) <= 1);
+        }
+
+    }
+
 }

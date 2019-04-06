@@ -81,7 +81,7 @@ public abstract class OrderedMapTest {
     @Test(expected=IllegalArgumentException.class)
     public void insertThenRemove() {
         map.insert(one, "A");
-        map.remove(one);
+        assertEquals("A", map.remove(one));
         assertEquals("A", map.get(one));
     }
 
@@ -107,7 +107,7 @@ public abstract class OrderedMapTest {
     @Test
     public void insertThenRemoveThenHas() {
         map.insert(one, "A");
-        map.remove(one);
+        assertEquals("A",map.remove(one));
         assertEquals(false, map.has(one));
     }
 
@@ -129,7 +129,7 @@ public abstract class OrderedMapTest {
         map.insert((Integer) 1, "S");
         map.insert((Integer) 3, "Q");
         assertEquals("{1: S, 2: B, 3: Q}", map.toString());
-        map.remove((Integer) 2);
+        assertEquals("B", map.remove((Integer) 2));
         assertEquals("{1: S, 3: Q}", map.toString());
     }
 
@@ -167,8 +167,8 @@ public abstract class OrderedMapTest {
         map.insert((Integer) 11, "X");
         map.put((Integer) 5, "W");
         map.put((Integer) 8, "F");
-        map.remove((Integer) 3);
-        map.remove((Integer) 9);
+        assertEquals("D", map.remove((Integer) 3));
+        assertEquals("S", map.remove((Integer) 9));
         assertEquals(true, map.has(8));
         assertEquals(false, map.has(9));
         assertEquals("{1: A, 2: B, 4: J, 5: W, 6: P, 7: Q, 8: F, " +

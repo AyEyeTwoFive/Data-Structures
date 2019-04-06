@@ -56,10 +56,6 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
         return height(this.root);
     }
 
-    public String printRoot() {
-        return this.root.toString();
-    }
-
     @Override
     public void insert(K k, V v) {
         if (k == null) {
@@ -233,8 +229,9 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
     {
         this.size -= 1;
         Node n = this.findForSure(k);
+        V val = n.value;
         root = remove(k, root);
-        return n.value;
+        return val;
     }
 
     /**

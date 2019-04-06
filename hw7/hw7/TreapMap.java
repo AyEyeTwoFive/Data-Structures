@@ -14,6 +14,7 @@ public class TreapMap<K extends Comparable<? super K>, V>
         K key;
         V value;
         int priority;
+        int height;
 
         // Constructor to make node creation easier to read.
         Node(K k, V v) {
@@ -21,6 +22,7 @@ public class TreapMap<K extends Comparable<? super K>, V>
             this.key = k;
             this.value = v;
             this.priority = rand.nextInt(100000);
+            this.height = 0;
         }
 
         // Just for debugging purposes.
@@ -28,6 +30,11 @@ public class TreapMap<K extends Comparable<? super K>, V>
             return "Node<key: " + this.key
                     + "; value: " + this.value
                     + ">";
+        }
+
+        // Return the balance factor for this node's subtree
+        public int balance() {
+            return height(this.left) - height(this.right);
         }
     }
 
@@ -40,6 +47,15 @@ public class TreapMap<K extends Comparable<? super K>, V>
     public int size() {
         return this.size;
     }
+
+    public int balance() {
+        return this.root.balance();
+    }
+
+    public int height() {
+        return height(this.root);
+    }
+
 
     // Return node for given key. This one is iterative
     // but the recursive one from lecture would work as
@@ -62,6 +78,18 @@ public class TreapMap<K extends Comparable<? super K>, V>
             }
         }
         return null;
+    }
+
+    /** Method to get height of a node
+     *
+     * @param n the node
+     * @return height
+     */
+    private int height(Node n) {
+        if (n == null) {
+            return -1;
+        }
+        return n.height;
     }
 
     @Override
@@ -94,7 +122,7 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return n.value;
     }
 
-    @Override
+    /*@Override
     public V remove(K k) {
         return null;
     }
@@ -102,7 +130,134 @@ public class TreapMap<K extends Comparable<? super K>, V>
     @Override
     public void insert(K k, V v) {
 
+    }*/
+
+    /** Method to rotate the subtree to the right.
+     *
+     * @param n Node of subtree
+     * @return node with rotated subtree
+     */
+    private Node rotateRight(Node n) {
+        Node temp = n.left;
+        n.left = temp.right;
+        temp.right = n;
+        n.height = 1 + Math.max(height(n.left), height(n.right));
+        temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+        return temp;
     }
+
+    /** Method to rotate the subtree to the left.
+     *
+     * @param n Node of subtree
+     * @return node with rotated subtree
+     */
+    private Node rotateLeft(Node n) {
+        Node temp = n.right;
+        n.right = temp.left;
+        temp.left = n;
+        n.height = 1 + Math.max(height(n.left), height(n.right));
+        temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+        return temp;
+    }
+
+    private Node treapify(Node n) {
+        if (n.left != null
+                && (n.balance() > 1
+                || n.left.priority > n.priority)) {
+            return rotateRight(n);
+        } else if (n.right != null
+                && (n.balance() < -1
+                || n.right.priority > n.priority)) {
+            return rotateLeft(n);
+        }
+        return n;
+    }
+
+    private Node insert(Node n, K k, V v) {
+        if (n == null) {
+            return new Node(k, v);
+        }
+
+        int cmp = k.compareTo(n.key);
+        if (cmp < 0) {
+            n.left = this.insert(n.left, k, v);
+
+        } else if (cmp > 0) {
+            n.right = this.insert(n.right, k, v);
+
+        } else {
+            throw new IllegalArgumentException("duplicate key " + k);
+        }
+        n.height = 1 + Math.max(height(n.left), height(n.right));
+        return treapify(n);
+    }
+
+    @Override
+    public void insert(K k, V v) throws IllegalArgumentException {
+        if (k == null) {
+            throw new IllegalArgumentException("null key");
+        }
+        this.root = this.insert(this.root, k, v);
+        this.size++;
+    }
+
+    /**
+     * Internal method to find the smallest item in a subtree.
+     * @param t the node that roots the tree.
+     * @return node containing the smallest item.
+     */
+    private Node min(Node n)
+    {
+        if(n == null )
+            return n;
+
+        while(n.left != null)
+            n = n.left;
+        return n;
+    }
+
+    @Override
+    public V remove(K k)
+    {
+        this.size -= 1;
+        Node n = this.findForSure(k);
+        root = remove(k, root);
+        return n.value;
+    }
+
+    /**
+     * Internal method to remove from a subtree.
+     * @param x the item to remove.
+     * @param t the node that roots the subtree.
+     * @return the new root of the subtree.
+     */
+    private Node remove(K k, Node n) {
+        if(n == null)
+            return n;   // Item not found; do nothing
+        int compareResult = k.compareTo(n.key);
+        if(compareResult < 0)
+            n.left = remove(k, n.left);
+        else if(compareResult > 0)
+            n.right = remove(k, n.right);
+        else if(n.left != null && n.right != null ) // Two children
+        {
+            n.key = min(n.right).key;
+            n.value = min(n.right).value;
+            n.right = remove(n.key, n.right);
+        }
+        else {
+            if (n.left == null) {
+                n = n.right;
+            }
+            else {
+                n = n.left;
+            }
+            return n;
+        }
+        return treapify(n);
+    }
+
+
 
     // Recursively add keys from subtree rooted at given node
     // into the given list.
