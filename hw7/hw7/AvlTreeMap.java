@@ -56,6 +56,9 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
         return height(this.root);
     }
 
+    public String printRoot() {
+        return this.root.toString();
+    }
 
     @Override
     public void insert(K k, V v) {
@@ -265,62 +268,6 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
         }
         return balance(n);
     }
-
-    /*
-    // Remove node with given key from subtree rooted at
-    // given node; return changed subtree with given key
-    // missing. (Once again doing this recursively makes
-    // it easier to add fancy rebalancing code later.)
-    private Node remove(Node n, K k) {
-        if (n == null) {
-            throw new IllegalArgumentException("cannot find key " + k);
-        }
-
-        int cmp = k.compareTo(n.key);
-        if (cmp < 0) {
-            n.left = this.remove(n.left, k);
-        } else if (cmp > 0) {
-            n.right = this.remove(n.right, k);
-        } else {
-            n = this.remove(n);
-        }
-
-        return balance(n);
-    }
-
-    // Remove given node and return the remaining tree.
-    // Easy if the node has 0 or 1 child; if it has two
-    // children, find the predecessor, copy its data to
-    // the given node (thus removing the key we need to
-    // get rid off), then remove the predecessor node.
-    private Node remove(Node n) {
-        // 0 and 1 child
-        if (n.left == null) {
-            return n.right;
-        }
-        if (n.right == null) {
-            return n.left;
-        }
-
-        // 2 children
-        Node max = this.max(n.left);
-        n.key = max.key;
-        n.value = max.value;
-        n.left = this.remove(n.left, max.key);
-        return n;
-    }
-
-    @Override
-    public V remove(K k) {
-        // Need this additional find() for the V return value, because the
-        // private remove() method cannot return that in addition to the new
-        // root. If we had been smarter and used a void return type, we would
-        // not need to do this extra work.
-        Node n = this.find(k);
-        this.root = this.remove(this.root, k);
-        this.size -= 1;
-        return n.value;
-    }*/
 
     // Recursively add keys from subtree rooted at given node
     // into the given list.
