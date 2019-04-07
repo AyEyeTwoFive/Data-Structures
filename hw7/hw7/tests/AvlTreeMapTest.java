@@ -119,7 +119,7 @@ public class AvlTreeMapTest extends OrderedMapTest {
             if (decision == 0) { // let's insert
                 added += 1;
                 avl.insert((Integer) added, "A");
-                assertTrue(avl.height() <= 2 * (Math.log(added) / Math.log(2)));
+                assertTrue(avl.height() <= 2 * (Math.log(31) / Math.log(2)));
                 assertTrue(Math.abs(avl.balance()) <= 1);
             }
             else { //let's remove
@@ -131,7 +131,7 @@ public class AvlTreeMapTest extends OrderedMapTest {
                 String temp = avl.get(which);
                 assertEquals(temp, avl.remove(which));
             }
-            assertTrue(avl.height() <= 2*(Math.log(added) / Math.log(2)));
+            assertTrue(avl.height() <= 2*(Math.log(31) / Math.log(2)));
             assertTrue(Math.abs(avl.balance()) <= 1);
         }
 
