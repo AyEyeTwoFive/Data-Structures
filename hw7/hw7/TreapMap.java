@@ -25,6 +25,15 @@ public class TreapMap<K extends Comparable<? super K>, V>
             this.height = 0;
         }
 
+        // Constructor with priority argument,
+        Node(K k, V v, int p) {
+            // left and right default to null
+            this.key = k;
+            this.value = v;
+            this.priority = p;
+            this.height = 0;
+        }
+
         // Just for debugging purposes.
         public String toString() {
             return "Node<key: " + this.key
@@ -36,12 +45,17 @@ public class TreapMap<K extends Comparable<? super K>, V>
         public int balance() {
             return height(this.left) - height(this.right);
         }
+
+        public int getPriority() {
+            return this.priority;
+        }
     }
 
     private Node root;
     private int size;
     private StringBuilder stringBuilder;
     Random rand = new Random();
+    protected ArrayList<Node> nodeList;
 
     @Override
     public int size() {
@@ -56,6 +70,29 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return height(this.root);
     }
 
+    public Node getRoot() {return this.root;};
+
+    public Node getLeft(Node n) {
+        return n.left;
+    }
+
+    public Node getRight(Node n) {
+        return n.right;
+    }
+
+    public V getVal(Node n) {
+        return n.value;
+    }
+
+    public ArrayList<Node> inorder(Node root, ArrayList<Node> list) {
+        if (root == null) {
+            return list;
+        }
+        inorder(root.left,list);
+        list.add(root);
+        inorder(root.right,list);
+        return list;
+    }
 
     // Return node for given key. This one is iterative
     // but the recursive one from lecture would work as
@@ -192,12 +229,39 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return treapify(n);
     }
 
+    private Node insert(Node n, K k, V v, int p) {
+        if (n == null) {
+            return new Node(k, v, p);
+        }
+
+        int cmp = k.compareTo(n.key);
+        if (cmp < 0) {
+            n.left = this.insert(n.left, k, v);
+
+        } else if (cmp > 0) {
+            n.right = this.insert(n.right, k, v);
+
+        } else {
+            throw new IllegalArgumentException("duplicate key " + k);
+        }
+        n.height = 1 + Math.max(height(n.left), height(n.right));
+        return treapify(n);
+    }
+
     @Override
     public void insert(K k, V v) throws IllegalArgumentException {
         if (k == null) {
             throw new IllegalArgumentException("null key");
         }
         this.root = this.insert(this.root, k, v);
+        this.size++;
+    }
+
+    public void insert(K k, V v, int p) throws IllegalArgumentException {
+        if (k == null) {
+            throw new IllegalArgumentException("null key");
+        }
+        this.root = this.insert(this.root, k, v, p);
         this.size++;
     }
 
@@ -221,8 +285,9 @@ public class TreapMap<K extends Comparable<? super K>, V>
     {
         this.size -= 1;
         Node n = this.findForSure(k);
+        V val = n.value;
         root = remove(k, root);
-        return n.value;
+        return val;
     }
 
     /**

@@ -4,16 +4,14 @@
     <list default="true" id="2bf31e70-59e8-4749-a467-0bb19a21fd5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw4/exceptions/EmptyException.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw4/exceptions/EmptyException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/AvlTreeMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/AvlTreeMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/AvlTreeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/AvlTreeMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw7/hw7/README" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/README" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw7/hw7/TreapMap$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/TreapMap$Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw7/hw7/TreapMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/TreapMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw7/hw7/TreapMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/TreapMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw7/hw7/tests/AVLTreeMapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/tests/AVLTreeMapTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw7/hw7/tests/AvlTreeMapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/tests/AvlTreeMapTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/tests/OrderedMapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/tests/OrderedMapTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/tests/OrderedMapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/tests/OrderedMapTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,23 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hw7/hw7/tests/AvlTreeMapTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="126" column="81" lean-forward="true" selection-start-line="126" selection-start-column="81" selection-end-line="126" selection-end-column="81" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw7/hw7/tests/OrderedMapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="131" column="42" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="42" />
+            <state relative-caret-position="408">
+              <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="174" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,23 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw7/hw7/AvlTreeMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3485">
-              <caret line="246" column="29" lean-forward="true" selection-start-line="246" selection-start-column="29" selection-end-line="246" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hw7/hw7/README">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="901">
+              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -71,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            <state relative-caret-position="289">
+              <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#242#243#0" expanded="true" />
@@ -83,24 +57,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw7/hw7/BinarySearchTreeMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="260" column="5" selection-start-line="202" selection-start-column="4" selection-end-line="260" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw7/hw7/TreapMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4250">
-              <caret line="258" lean-forward="true" selection-start-line="258" selection-end-line="258" />
+            <state relative-caret-position="289">
+              <caret line="82" column="19" lean-forward="true" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1036#1037#0" expanded="true" />
+                <element signature="e#1070#1071#0" expanded="true" />
+                <element signature="e#1458#1459#0" expanded="true" />
+                <element signature="e#1482#1483#0" expanded="true" />
+                <element signature="e#1531#1532#0" expanded="true" />
+                <element signature="e#1560#1561#0" expanded="true" />
+                <element signature="e#1908#1909#0" expanded="true" />
+                <element signature="e#1937#1938#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,13 +93,16 @@
       <find>get</find>
       <find>findforS</find>
       <find>balan</find>
-      <find>map</find>
       <find>return -1</find>
       <find>remove</find>
       <find>V</find>
       <find>public V</find>
       <find>find</find>
       <find>balance(n)</find>
+      <find>map</find>
+      <find>m</find>
+      <find>map.insert</find>
+      <find>getVal</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,12 +132,12 @@
         <option value="$PROJECT_DIR$/hw7/hw7/tests/MapTest.java" />
         <option value="$PROJECT_DIR$/hw7/hw7/tests/BinarySearchTreeMapTest.java" />
         <option value="$PROJECT_DIR$/hw7/hw7/BinarySearchTreeMap.java" />
-        <option value="$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.java" />
-        <option value="$PROJECT_DIR$/hw7/hw7/TreapMap.java" />
-        <option value="$PROJECT_DIR$/hw7/hw7/README" />
         <option value="$PROJECT_DIR$/hw7/hw7/tests/OrderedMapTest.java" />
-        <option value="$PROJECT_DIR$/hw7/hw7/AvlTreeMap.java" />
         <option value="$PROJECT_DIR$/hw7/hw7/tests/AvlTreeMapTest.java" />
+        <option value="$PROJECT_DIR$/hw7/hw7/AvlTreeMap.java" />
+        <option value="$PROJECT_DIR$/hw7/hw7/TreapMap.java" />
+        <option value="$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.java" />
+        <option value="$PROJECT_DIR$/hw7/hw7/README" />
       </list>
     </option>
   </component>
@@ -187,12 +160,6 @@
             <path>
               <item name="hw" type="b2602c69:ProjectViewProjectNode" />
               <item name="hw" type="462c0819:PsiDirectoryNode" />
-              <item name="hw6" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hw" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hw" type="462c0819:PsiDirectoryNode" />
-              <item name="hw6" type="462c0819:PsiDirectoryNode" />
               <item name="hw6" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -263,12 +230,12 @@
       <workItem from="1552966590269" duration="283000" />
       <workItem from="1553071470825" duration="83526000" />
       <workItem from="1554162064296" duration="41722000" />
-      <workItem from="1554565230867" duration="5960000" />
+      <workItem from="1554565230867" duration="20932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196944000" />
+    <option name="totallyTimeSpent" value="211916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="733" extended-state="6" />
@@ -612,69 +579,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw7/hw7/TreapMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4250">
-          <caret line="258" lean-forward="true" selection-start-line="258" selection-end-line="258" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw7/hw7/BinarySearchTreeMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="260" column="5" selection-start-line="202" selection-start-column="4" selection-end-line="260" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#242#243#0" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw7/hw7/OrderedMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw7/hw7/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw7/hw7/tests/OrderedMapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="131" column="42" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw7/hw7/AvlTreeMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3485">
-          <caret line="246" column="29" lean-forward="true" selection-start-line="246" selection-start-column="29" selection-end-line="246" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -695,13 +603,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hw7/hw7/AvlTreeMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="96" column="24" lean-forward="true" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1412#1413#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hw7/hw7/tests/AvlTreeMapTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="126" column="81" lean-forward="true" selection-start-line="126" selection-start-column="81" selection-end-line="126" selection-end-column="81" />
+        <state relative-caret-position="238">
+          <caret line="22" column="67" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw7/hw7/BinarySearchTreeMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="260" column="5" selection-start-line="202" selection-start-column="4" selection-end-line="260" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw7/hw7/tests/OrderedMapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="174" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw7/hw7/TreapMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="82" column="19" lean-forward="true" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1036#1037#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1458#1459#0" expanded="true" />
+            <element signature="e#1482#1483#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="e#1908#1909#0" expanded="true" />
+            <element signature="e#1937#1938#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw7/hw7/tests/TreapMapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw7/hw7/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
         </state>
       </provider>
     </entry>
