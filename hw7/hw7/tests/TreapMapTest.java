@@ -104,6 +104,7 @@ public class TreapMapTest extends OrderedMapTest {
         assertEquals(5, treap.getPriority(treap.getLeft(treap.getRoot())));
         assertEquals(1, treap.getPriority(treap.getRight(treap.getRoot())));
         assertEquals("A", treap.remove((Integer) 3));
+        assertFalse(treap.has(3));
         assertEquals(2, treap.size());
         assertEquals(5, treap.getPriority(treap.getRoot()));
         assertEquals("B", treap.getVal(treap.getRoot()));
@@ -147,8 +148,8 @@ public class TreapMapTest extends OrderedMapTest {
         assertEquals("Q", treap.remove((Integer) 2));
         assertFalse(treap.has(21));
         assertEquals(28, treap.size());
-        //assertEquals(64, treap.getPriority(treap.getRoot()));
-        //assertEquals("!", treap.getVal(treap.getRoot()));
+        assertEquals(77, treap.getPriority(treap.getRoot()));
+        assertEquals("J", treap.getVal(treap.getRoot()));
     }
 
 

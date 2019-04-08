@@ -85,6 +85,7 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return n.priority;
     }
 
+
     public ArrayList<Node> inorder(Node root, ArrayList<Node> list) {
         if (root == null) {
             return list;
@@ -209,6 +210,31 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return n;
     }
 
+    private Node rebalance(Node n) {
+        if (n == null) {
+            return null;
+        }
+        else if (n.left != null
+                && n.left.priority > n.priority) {
+            Node temp = n.left;
+            n.left = temp.right;
+            temp.right = n;
+            n.height = 1 + Math.max(height(n.left), height(n.right));
+            temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+        } else if (n.right != null
+                && n.right.priority > n.priority) {
+            Node temp = n.right;
+            n.right = temp.left;
+            temp.left = n;
+            n.height = 1 + Math.max(height(n.left), height(n.right));
+            temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+        }
+        else { // both null
+            n = null;
+        }
+        return rebalance(n);
+    }
+
     private Node insert(Node n, K k, V v) {
         if (n == null) {
             return new Node(k, v);
@@ -285,7 +311,10 @@ public class TreapMap<K extends Comparable<? super K>, V>
         this.size -= 1;
         Node n = this.findForSure(k);
         V val = n.value;
-        root = remove(k, root);
+        n.priority = -1;
+        //root = remove(k, root);
+        root = remove2(root, k);
+        //remove(n);
         return val;
     }
 
@@ -311,9 +340,9 @@ public class TreapMap<K extends Comparable<? super K>, V>
         int compareResult = k.compareTo(n.key);
         if(compareResult < 0)
             n.left = remove(k, n.left);
-        else if(compareResult > 0)
+        else if (compareResult > 0)
             n.right = remove(k, n.right);
-        else if(n.left != null && n.right != null ) // Two children
+        else if (n.left != null && n.right != null ) // Two children
         {
             n.key = min(n.right).key;
             n.value = min(n.right).value;
@@ -329,6 +358,47 @@ public class TreapMap<K extends Comparable<? super K>, V>
             return n;
         }
         return treapify(n);
+        //return rebalance(n);
+    }
+
+    private Node remove2(Node n, K k) {
+        if (n == null) {
+            throw new IllegalArgumentException("cannot find key " + k);
+        }
+
+        int cmp = k.compareTo(n.key);
+        if (cmp < 0) {
+            n.left = this.remove2(n.left, k);
+        } else if (cmp > 0) {
+            n.right = this.remove2(n.right, k);
+        } else if (n.left == null) {
+            Node temp = n.right;
+            n = null;
+            n = temp;
+        } else if (n.right == null) {
+            Node temp = n.left;
+            n = null;
+            n = temp;
+        } else {
+            int leftPriority = 0;
+            if (n.left != null) {
+                leftPriority = n.left.priority;
+            }
+
+            int rightPriority = 0;
+            if (n.right != null) {
+                rightPriority = n.right.priority;
+            }
+
+            if (leftPriority < rightPriority) {
+                n = rotateLeft(n);
+                n.left = remove2(n.left, k);
+            } else {
+                n = rotateRight(n);
+                n.right = remove2(n.right, k);
+            }
+        }
+        return n;
     }
 
     /**
@@ -366,20 +436,29 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return t;
     }*/
 
-    /*private Node remove(K k, Node n) {
-        if (n.left == null && n.right == null) {
-            n = null;
-            return n;
-        }
-        else if ( n.left != null && n.right != null) {
-            if (n.left.priority > n.right.priority) { // rotate right
+    private void remove(Node n) {
+        while (!(n.left == null && n.right == null)) {
+            if (n.left != null && n.right != null) {
+                if (n.left.priority > n.right.priority) { // rotate right
+                    Node temp = n.left;
+                    n.left = temp.right;
+                    temp.right = n;
+                    n.height = 1 + Math.max(height(n.left), height(n.right));
+                    temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+                } else { // rotate left
+                    Node temp = n.right;
+                    n.right = temp.left;
+                    temp.left = n;
+                    n.height = 1 + Math.max(height(n.left), height(n.right));
+                    temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+                }
+            } else if (n.left != null) { // rotate left
                 Node temp = n.left;
                 n.left = temp.right;
                 temp.right = n;
                 n.height = 1 + Math.max(height(n.left), height(n.right));
                 temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-            }
-            else { // rotate left
+            } else {
                 Node temp = n.right;
                 n.right = temp.left;
                 temp.left = n;
@@ -387,22 +466,8 @@ public class TreapMap<K extends Comparable<? super K>, V>
                 temp.height = 1 + Math.max(height(temp.left), height(temp.right));
             }
         }
-        else if (n.left != null) { // rotate left
-            Node temp = n.left;
-            n.left = temp.right;
-            temp.right = n;
-            n.height = 1 + Math.max(height(n.left), height(n.right));
-            temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-        }
-        else {
-            Node temp = n.right;
-            n.right = temp.left;
-            temp.left = n;
-            n.height = 1 + Math.max(height(n.left), height(n.right));
-            temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-        }
-        return remove(k, n);
-    }*/
+        n = null;
+    }
 
     /**
      * Internal method to remove from a subtree.
