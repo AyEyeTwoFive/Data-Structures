@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
+/** Treap implementation of Map.
+ *
+ * @param <K> The key type
+ * @param <V> The value type
+ */
 public class TreapMap<K extends Comparable<? super K>, V>
         implements OrderedMap<K, V> {
 
@@ -51,50 +56,88 @@ public class TreapMap<K extends Comparable<? super K>, V>
     private Node root;
     private int size;
     private StringBuilder stringBuilder;
-    Random rand = new Random();
-    protected ArrayList<Node> nodeList;
+    private Random rand = new Random();
+
 
     @Override
     public int size() {
         return this.size;
     }
 
+    /** Method to return balance factor of the tree.
+     *
+     * @return the balance factor
+     */
     public int balance() {
         return this.root.balance();
     }
 
+    /** Method to return height of the tree.
+     *
+     * @return the height
+     */
     public int height() {
         return height(this.root);
     }
 
-    public Node getRoot() {return this.root;};
+    /** Method to get height of a node
+     *
+     * @param n the node
+     * @return height
+     */
+    private int height(Node n) {
+        if (n == null) {
+            return -1;
+        }
+        return n.height;
+    }
 
+    /** Method to return pointer to root node.
+     *
+     * @return the root of the tree
+     */
+
+    public Node getRoot() {
+        return this.root;
+    }
+
+    /** Method to return pointer to left child of node.
+     *
+     * @param n the node
+     * @return the left child of the node
+     */
     public Node getLeft(Node n) {
         return n.left;
     }
 
+    /** Method to return pointer to right child of node.
+     *
+     * @param n the node
+     * @return the right child of the node
+     */
     public Node getRight(Node n) {
         return n.right;
     }
 
+    /** Method to get the value contained within a node.
+     *
+     * @param n the node
+     * @return the value
+     */
     public V getVal(Node n) {
         return n.value;
     }
 
+    /** Method to return priority of a node.
+     *
+     * @param n the node
+     * @return the priority
+     */
     public int getPriority(Node n) {
         return n.priority;
     }
 
 
-    public ArrayList<Node> inorder(Node root, ArrayList<Node> list) {
-        if (root == null) {
-            return list;
-        }
-        inorder(root.left,list);
-        list.add(root);
-        inorder(root.right,list);
-        return list;
-    }
 
     // Return node for given key. This one is iterative
     // but the recursive one from lecture would work as
@@ -119,17 +162,6 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return null;
     }
 
-    /** Method to get height of a node
-     *
-     * @param n the node
-     * @return height
-     */
-    private int height(Node n) {
-        if (n == null) {
-            return -1;
-        }
-        return n.height;
-    }
 
     @Override
     public boolean has(K k) {
@@ -161,15 +193,6 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return n.value;
     }
 
-    /*@Override
-    public V remove(K k) {
-        return null;
-    }
-
-    @Override
-    public void insert(K k, V v) {
-
-    }*/
 
     /** Method to rotate the subtree to the right.
      *
@@ -210,30 +233,6 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return n;
     }
 
-    private Node rebalance(Node n) {
-        if (n == null) {
-            return null;
-        }
-        else if (n.left != null
-                && n.left.priority > n.priority) {
-            Node temp = n.left;
-            n.left = temp.right;
-            temp.right = n;
-            n.height = 1 + Math.max(height(n.left), height(n.right));
-            temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-        } else if (n.right != null
-                && n.right.priority > n.priority) {
-            Node temp = n.right;
-            n.right = temp.left;
-            temp.left = n;
-            n.height = 1 + Math.max(height(n.left), height(n.right));
-            temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-        }
-        else { // both null
-            n = null;
-        }
-        return rebalance(n);
-    }
 
     private Node insert(Node n, K k, V v) {
         if (n == null) {
@@ -282,6 +281,13 @@ public class TreapMap<K extends Comparable<? super K>, V>
         this.size++;
     }
 
+    /** Insert method with priority as an argument, for testing purposes.
+     *
+     * @param k key
+     * @param v value
+     * @param p priority
+     * @throws IllegalArgumentException if key is null
+     */
     public void insert(K k, V v, int p) throws IllegalArgumentException {
         if (k == null) {
             throw new IllegalArgumentException("null key");
@@ -295,82 +301,41 @@ public class TreapMap<K extends Comparable<? super K>, V>
      * @param t the node that roots the tree.
      * @return node containing the smallest item.
      */
-    private Node min(Node n)
-    {
-        if(n == null )
+    private Node min(Node n) {
+        if (n == null) {
             return n;
-
-        while(n.left != null)
+        }
+        while (n.left != null) {
             n = n.left;
+        }
         return n;
     }
 
     @Override
-    public V remove(K k)
-    {
+    public V remove(K k) {
         this.size -= 1;
         Node n = this.findForSure(k);
         V val = n.value;
         n.priority = -1;
-        //root = remove(k, root);
-        root = remove2(root, k);
-        //remove(n);
+        root = remove(root, k);
         return val;
     }
-
-    /*@Override
-    public V remove( K x )
-    {
-        this.size--;
-        Node n = this.findForSure(x);
-        V val = n.value;
-        root = remove( x, root );
-        return val;
-    }*/
 
     /**
-     * Internal method to remove from a subtree.
-     * @param x the item to remove.
-     * @param t the node that roots the subtree.
+     * Method to remove from a subtree.
+     * @param k the item to remove.
+     * @param n the node that roots the subtree.
      * @return the new root of the subtree.
      */
-    private Node remove(K k, Node n) {
-        if(n == null)
-            return n;   // Item not found; do nothing
-        int compareResult = k.compareTo(n.key);
-        if(compareResult < 0)
-            n.left = remove(k, n.left);
-        else if (compareResult > 0)
-            n.right = remove(k, n.right);
-        else if (n.left != null && n.right != null ) // Two children
-        {
-            n.key = min(n.right).key;
-            n.value = min(n.right).value;
-            n.right = remove(n.key, n.right);
-        }
-        else {
-            if (n.left == null) {
-                n = n.right;
-            }
-            else {
-                n = n.left;
-            }
-            return n;
-        }
-        return treapify(n);
-        //return rebalance(n);
-    }
-
-    private Node remove2(Node n, K k) {
+    private Node remove(Node n, K k) {
         if (n == null) {
             throw new IllegalArgumentException("cannot find key " + k);
         }
-
         int cmp = k.compareTo(n.key);
         if (cmp < 0) {
-            n.left = this.remove2(n.left, k);
+            n.left = this.remove(n.left, k);
         } else if (cmp > 0) {
-            n.right = this.remove2(n.right, k);
+            n.right = this.remove(n.right, k);
         } else if (n.left == null) {
             Node temp = n.right;
             n = null;
@@ -380,153 +345,24 @@ public class TreapMap<K extends Comparable<? super K>, V>
             n = null;
             n = temp;
         } else {
-            int leftPriority = 0;
+            int leftp = 0;
             if (n.left != null) {
-                leftPriority = n.left.priority;
+                leftp = n.left.priority;
             }
-
-            int rightPriority = 0;
+            int rightp = 0;
             if (n.right != null) {
-                rightPriority = n.right.priority;
+                rightp = n.right.priority;
             }
-
-            if (leftPriority < rightPriority) {
+            if (leftp < rightp) {
                 n = rotateLeft(n);
-                n.left = remove2(n.left, k);
+                n.left = remove(n.left, k);
             } else {
                 n = rotateRight(n);
-                n.right = remove2(n.right, k);
+                n.right = remove(n.right, k);
             }
         }
         return n;
     }
-
-    /**
-     * Internal method to remove from a subtree.
-     * @param x the item to remove.
-     * @param t the node that roots the subtree.
-     * @return the new root of the subtree.
-     */
-    /*private Node remove(K x, Node t )
-    {
-        if( t != null )
-        {
-            int compareResult = x.compareTo( t.key );
-
-            if( compareResult < 0 )
-                t.left = remove( x, t.left );
-            else if( compareResult > 0 )
-                t.right = remove( x, t.right );
-            else
-            {
-                // match -- one child or leaf?
-                if ( t.left == null ) return t.right;
-                if ( t.right ==  null) return t.left;
-
-                // Match found, two children
-                if( t.left.priority < t.right.priority ) {
-                    t = rotateWithLeftChild( t );
-                    t.right = remove (x, t.right);
-                } else {
-                    t = rotateWithRightChild( t );
-                    t.left = remove( x, t.left);
-                }
-            }
-        }
-        return t;
-    }*/
-
-    private void remove(Node n) {
-        while (!(n.left == null && n.right == null)) {
-            if (n.left != null && n.right != null) {
-                if (n.left.priority > n.right.priority) { // rotate right
-                    Node temp = n.left;
-                    n.left = temp.right;
-                    temp.right = n;
-                    n.height = 1 + Math.max(height(n.left), height(n.right));
-                    temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-                } else { // rotate left
-                    Node temp = n.right;
-                    n.right = temp.left;
-                    temp.left = n;
-                    n.height = 1 + Math.max(height(n.left), height(n.right));
-                    temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-                }
-            } else if (n.left != null) { // rotate left
-                Node temp = n.left;
-                n.left = temp.right;
-                temp.right = n;
-                n.height = 1 + Math.max(height(n.left), height(n.right));
-                temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-            } else {
-                Node temp = n.right;
-                n.right = temp.left;
-                temp.left = n;
-                n.height = 1 + Math.max(height(n.left), height(n.right));
-                temp.height = 1 + Math.max(height(temp.left), height(temp.right));
-            }
-        }
-        n = null;
-    }
-
-    /**
-     * Internal method to remove from a subtree.
-     * @param x the item to remove.
-     * @param t the node that roots the subtree.
-     * @return the new root of the subtree.
-     */
-    /*private Node remove(K x, Node t )
-    {
-        if( t != null )
-        {
-            int compareResult = x.compareTo( t.key );
-
-            if( compareResult < 0 )
-                t.left = remove( x, t.left );
-            else if( compareResult > 0 )
-                t.right = remove( x, t.right );
-            else
-            {
-                // match -- one child or leaf?
-                if ( t.left == null ) return t.right;
-                if ( t.right ==  null) return t.left;
-
-                // Match found, two children
-                if( t.left.priority < t.right.priority ) {
-                    t = rotateWithLeftChild( t );
-                    t.right = remove (x, t.right);
-                } else {
-                    t = rotateWithRightChild( t );
-                    t.left = remove( x, t.left);
-                }
-            }
-        }
-        return t;
-    }*/
-
-    /**
-     * Rotate binary tree node with left child.
-     */
-    private Node rotateWithLeftChild(Node k2 )
-    {
-        Node k1 = k2.left;
-        k2.left = k1.right;
-        k1.right = k2;
-        return k1;
-    }
-
-    /**
-     * Rotate binary tree node with right child.
-     */
-    private Node rotateWithRightChild(Node k1 )
-    {
-        Node k2 = k1.right;
-        k1.right = k2.left;
-        k2.left = k1;
-        return k2;
-    }
-
-
 
 
     // Recursively add keys from subtree rooted at given node

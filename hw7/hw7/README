@@ -60,6 +60,10 @@ Part A:
 
     After testing the basic rotations, similarly to what I did for AVL tree, I added a few additional, more
     robust tests with greater number of elements, and checked for satisfaction of the treap properties.
+    The BST ordering property was checked by nature of the Ordered Map tests still passing (with the same
+    in-order iterator). I checked the priority heap property by checking that the node at the root was
+    the one with the maximum priority, and assumed that this meant the property would be preserved throughout
+    the tree. I also checked priorities of the immediate children of the root when possible.
 
 Part D:
                          SimpleMap         BinarySearchTreeMap       AVLTreeMap       TreapMap
