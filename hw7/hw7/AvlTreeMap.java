@@ -4,6 +4,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Avl Tree implementation of ordered map interface.
+ * @param <K> key
+ * @param <V> value
+ */
 public class AvlTreeMap<K extends Comparable<? super K>, V>
         implements OrderedMap<K, V> {
 
@@ -48,12 +53,53 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
         return this.size;
     }
 
+    /** Method to return balance factor of the tree.
+     *
+     * @return balance factor
+     */
     public int balance() {
         return this.root.balance();
     }
 
+    /** Method to balance the tree after adding
+     *
+     * @param n node of subtree to balance
+     * @return node with balanced subtree
+     */
+    private Node balance(Node n) {
+        if (n.balance() < -1) { // rotate left
+            if (n.right.balance() > 0) { // right rotate
+                n.right = rotateRight(n.right);
+            }
+            n = rotateLeft(n);
+        }
+        else if (n.balance() > 1) { // right rotate
+            if (n.left.balance() < 0) { // left rotate
+                n.left = rotateLeft(n.left);
+            }
+            n = rotateRight(n);
+        }
+        return n;
+    }
+
+    /** Method to return height of the tree.
+     *
+     * @return height
+     */
     public int height() {
         return height(this.root);
+    }
+
+    /** Method to get height of a node
+     *
+     * @param n the node
+     * @return height
+     */
+    private int height(Node n) {
+        if (n == null) {
+            return -1;
+        }
+        return n.height;
     }
 
     @Override
@@ -85,38 +131,6 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
         return balance(n);
     }
 
-    /** Method to get height of a node
-     *
-     * @param n the node
-     * @return height
-     */
-    private int height(Node n) {
-        if (n == null) {
-            return -1;
-        }
-        return n.height;
-    }
-
-    /** Method to balance the tree after adding
-     *
-     * @param n node of subtree to balance
-     * @return node with balanced subtree
-     */
-    private Node balance(Node n) {
-        if (n.balance() < -1) { // rotate left
-            if (n.right.balance() > 0) { // right rotate
-                n.right = rotateRight(n.right);
-            }
-            n = rotateLeft(n);
-        }
-        else if (n.balance() > 1) { // right rotate
-            if (n.left.balance() < 0) { // left rotate
-                n.left = rotateLeft(n.left);
-            }
-            n = rotateRight(n);
-        }
-        return n;
-    }
 
     /** Method to rotate the subtree to the right.
      *
@@ -214,19 +228,18 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
      * @param t the node that roots the tree.
      * @return node containing the smallest item.
      */
-    private Node min(Node n)
-    {
-        if(n == null )
+    private Node min(Node n) {
+        if (n == null) {
             return n;
-
-        while(n.left != null)
+        }
+        while (n.left != null) {
             n = n.left;
+        }
         return n;
     }
 
     @Override
-    public V remove(K k)
-    {
+    public V remove(K k) {
         this.size -= 1;
         Node n = this.findForSure(k);
         V val = n.value;
@@ -241,15 +254,17 @@ public class AvlTreeMap<K extends Comparable<? super K>, V>
      * @return the new root of the subtree.
      */
     private Node remove(K k, Node n) {
-        if(n == null)
+        if (n == null) {
             return n;   // Item not found; do nothing
+        }
         int compareResult = k.compareTo(n.key);
-        if(compareResult < 0)
+        if (compareResult < 0) {
             n.left = remove(k, n.left);
-        else if(compareResult > 0)
+        }
+        else if (compareResult > 0) {
             n.right = remove(k, n.right);
-        else if(n.left != null && n.right != null ) // Two children
-        {
+        }
+        else if (n.left != null && n.right != null) { // Two children
             n.key = min(n.right).key;
             n.value = min(n.right).value;
             n.right = remove(n.key, n.right);

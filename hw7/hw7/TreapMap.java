@@ -289,6 +289,16 @@ public class TreapMap<K extends Comparable<? super K>, V>
         return val;
     }
 
+    /*@Override
+    public V remove( K x )
+    {
+        this.size--;
+        Node n = this.findForSure(x);
+        V val = n.value;
+        root = remove( x, root );
+        return val;
+    }*/
+
     /**
      * Internal method to remove from a subtree.
      * @param x the item to remove.
@@ -320,6 +330,137 @@ public class TreapMap<K extends Comparable<? super K>, V>
         }
         return treapify(n);
     }
+
+    /**
+     * Internal method to remove from a subtree.
+     * @param x the item to remove.
+     * @param t the node that roots the subtree.
+     * @return the new root of the subtree.
+     */
+    /*private Node remove(K x, Node t )
+    {
+        if( t != null )
+        {
+            int compareResult = x.compareTo( t.key );
+
+            if( compareResult < 0 )
+                t.left = remove( x, t.left );
+            else if( compareResult > 0 )
+                t.right = remove( x, t.right );
+            else
+            {
+                // match -- one child or leaf?
+                if ( t.left == null ) return t.right;
+                if ( t.right ==  null) return t.left;
+
+                // Match found, two children
+                if( t.left.priority < t.right.priority ) {
+                    t = rotateWithLeftChild( t );
+                    t.right = remove (x, t.right);
+                } else {
+                    t = rotateWithRightChild( t );
+                    t.left = remove( x, t.left);
+                }
+            }
+        }
+        return t;
+    }*/
+
+    /*private Node remove(K k, Node n) {
+        if (n.left == null && n.right == null) {
+            n = null;
+            return n;
+        }
+        else if ( n.left != null && n.right != null) {
+            if (n.left.priority > n.right.priority) { // rotate right
+                Node temp = n.left;
+                n.left = temp.right;
+                temp.right = n;
+                n.height = 1 + Math.max(height(n.left), height(n.right));
+                temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+            }
+            else { // rotate left
+                Node temp = n.right;
+                n.right = temp.left;
+                temp.left = n;
+                n.height = 1 + Math.max(height(n.left), height(n.right));
+                temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+            }
+        }
+        else if (n.left != null) { // rotate left
+            Node temp = n.left;
+            n.left = temp.right;
+            temp.right = n;
+            n.height = 1 + Math.max(height(n.left), height(n.right));
+            temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+        }
+        else {
+            Node temp = n.right;
+            n.right = temp.left;
+            temp.left = n;
+            n.height = 1 + Math.max(height(n.left), height(n.right));
+            temp.height = 1 + Math.max(height(temp.left), height(temp.right));
+        }
+        return remove(k, n);
+    }*/
+
+    /**
+     * Internal method to remove from a subtree.
+     * @param x the item to remove.
+     * @param t the node that roots the subtree.
+     * @return the new root of the subtree.
+     */
+    /*private Node remove(K x, Node t )
+    {
+        if( t != null )
+        {
+            int compareResult = x.compareTo( t.key );
+
+            if( compareResult < 0 )
+                t.left = remove( x, t.left );
+            else if( compareResult > 0 )
+                t.right = remove( x, t.right );
+            else
+            {
+                // match -- one child or leaf?
+                if ( t.left == null ) return t.right;
+                if ( t.right ==  null) return t.left;
+
+                // Match found, two children
+                if( t.left.priority < t.right.priority ) {
+                    t = rotateWithLeftChild( t );
+                    t.right = remove (x, t.right);
+                } else {
+                    t = rotateWithRightChild( t );
+                    t.left = remove( x, t.left);
+                }
+            }
+        }
+        return t;
+    }*/
+
+    /**
+     * Rotate binary tree node with left child.
+     */
+    private Node rotateWithLeftChild(Node k2 )
+    {
+        Node k1 = k2.left;
+        k2.left = k1.right;
+        k1.right = k2;
+        return k1;
+    }
+
+    /**
+     * Rotate binary tree node with right child.
+     */
+    private Node rotateWithRightChild(Node k1 )
+    {
+        Node k2 = k1.right;
+        k1.right = k2.left;
+        k2.left = k1;
+        return k2;
+    }
+
 
 
 
