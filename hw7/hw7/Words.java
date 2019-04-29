@@ -20,7 +20,7 @@ public final class Words {
      * @param args Command line arguments (ignored).
      */
     public static void main(String[] args) {
-        data = new BinarySearchTreeMap<String, Integer>();
+        data = new TreapMap<String, Integer>();
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNextLine()) {

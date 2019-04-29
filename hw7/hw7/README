@@ -66,16 +66,57 @@ Part A:
     the tree. I also checked priorities of the immediate children of the root when possible.
 
 Part D:
+
+    The following summarizes my benchmark test results using the "time" command in linux with various
+    data types using the different implementations. I made data of various sizes with differently arranged
+    sequences of integers (that would be read in as strings), as follows:
+    random - completely random data with little or no repeats
+    sorted - random but in sorted order
+    mixed - random data with 50% repeats
+    biased - 90% repeats
+    The different sizes were 1k, 10k, and 100k.
+    I also tested the program on natural language data by creating datasets that contained the text from
+    "Frankenstein". One had the entire book (approx. 78k words) and the other had the first half (approx.
+    39k words).
+    Times are shown in seconds
+
                          SimpleMap         BinarySearchTreeMap       AVLTreeMap       TreapMap
-    biased 1k              0.284                    0.316
-    biased 10k             0.864                    1.236
-    biased 100k            6.771                    3.443
-    mixed 1k               0.472                    0.543
-    mixed 10k              2.675                    2.192
-    mixed 100k            14.914                    5.544
-    rand 1k                0.668                    0.748
-    rand 10k               3.933                    2.770
-    rand 100k             15.714
-    sorted 1k              0.616
-    sorted 10k             4.102
-    sorted 100k           15.077
+    biased 1k              0.284                    0.316               0.343          0.315
+    biased 10k             0.864                    1.236               0.753          0.926
+    biased 100k            6.771                    3.443               3.398          3.924
+    mixed 1k               0.472                    0.543               0.505          0.509
+    mixed 10k              2.675                    2.192               2.586          2.344
+    mixed 100k            14.914                    5.544               5.102          5.366
+    rand 1k                0.668                    0.748               0.735          0.719
+    rand 10k               3.933                    2.770               3.063          3.496
+    rand 100k             15.714                    5.443               5.353          5.913
+    sorted 1k              0.616                    0.716               0.744          0.848
+    sorted 10k             4.102                    3.177               3.175          2.983
+    sorted 100k           15.077                    5.883               5.284          4.915
+    frankenstein 39k       4.804                    3.264               2.915          3.294
+    frankenstein 78k       8.135                    4.493               3.951          4.164
+
+    As expected, BST, AVLTree, and Treap maps all perform better than the simple map implementation.
+    It appears that simple map follows approximately a O(n) time complexity (doubling the size of the data
+    doubles the time needed), while the others seem to follow approximately an O(log n) overall time
+    complexity, which makes sense given the time complexities we learned in class.
+
+    Overall, the time complexities for all 3 of the tree-based map structures were similar, especially between
+    AVL and Treap. In general, these structures performed best for data that was mostly repeats, as this likely
+    required fewer operations that are needed to maintain the properties of tree structures (not many comparisons
+    are needed when you are inserting data, since the equality is found fast).
+
+    For BST, the program was slower when the data was linearly sorted as opposed to random.
+    This is likely because with sorted data, the insertion operation takes a full O(N) time complexity, since
+    the height will be N (you consistently add to the same side of the tree since the data is increasing). This
+    likely explains why BST is comparable to AVL and treap with random data but noticeably slower for sorted data.
+
+    AVL tree and Treap are both better at inserting sorted data than a BST map, as insert operations likely follow
+    approximately log(N) time due to the balanced structures. With random data there is likely more work required
+    to rotate and maintain the AVL structure.
+
+    Treap map performed particularly better than both BST and AVL for sorted data, which may be because
+    the probabilistic priority heap structure of the Treap works particularly well for this situation.
+
+    For all of these times it should also be noted that there is some random variation, or error, in the times
+    given by the time command. Thus, the comparisons might not be guaranteed, and could vary.
