@@ -77,7 +77,7 @@ public final class StreetSearcher {
         Vertex<String> start = vertices.get(startName);
         Vertex<String> end = vertices.get(endName);
 
-        double totalDist = -1;  
+        double totalDist = -1;
 
         // TODO - write this!
         /* 
@@ -104,7 +104,6 @@ public final class StreetSearcher {
             pathfind.add(v);
         }
 
-        boolean found = false;
         while (!pathfind.isEmpty()) {
             Vertex<String> u = pathfind.peek();
             pathfind.remove();
@@ -123,7 +122,6 @@ public final class StreetSearcher {
                     pathfind.add(nb);
                 }
                 if (end.equals(nb)) {
-                    found = true;
                     totalDist = graph.getDist(nb);
                     break;
                 }
