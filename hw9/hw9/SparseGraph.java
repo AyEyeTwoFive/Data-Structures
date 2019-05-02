@@ -105,10 +105,20 @@ public class SparseGraph<V, E> implements Graph<V, E> {
         }
     }
 
+    /** Set distance associated with a vertex.
+     *
+     * @param v the veretex
+     * @param dist the distance
+     */
     public void setDist(Vertex<V> v, double dist) {
         convert(v).dist = dist;
     }
 
+    /** Get distance associated with a vertex.
+     *
+     * @param v vertex
+     * @return distance
+     */
     public double getDist(Vertex<V> v) {
         if (v == null) {
             throw new PositionException();

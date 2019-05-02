@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Scanner;
-import java.util.Comparator;
 import java.util.Iterator;
 
 /**
@@ -78,7 +77,7 @@ public final class StreetSearcher {
         Vertex<String> start = vertices.get(startName);
         Vertex<String> end = vertices.get(endName);
 
-        double totalDist = -1;  // TODO: update this below
+        double totalDist = -1;  
 
         // TODO - write this!
         /* 
