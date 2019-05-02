@@ -16,12 +16,14 @@ import java.util.List;
 public class SparseGraph<V, E> implements Graph<V, E> {
 
     // Class for a vertex of type V
-    private final class VertexNode<V> implements Vertex<V> {
+    private final class VertexNode<V> implements Vertex<V>,
+            Comparable<VertexNode<V>> {
         V data;
         Graph<V, E> owner;
         List<Edge<E>> outgoing;
         List<Edge<E>> incoming;
         Object label;
+        double dist;
 
         VertexNode(V v) {
             this.data = v;
@@ -39,6 +41,18 @@ public class SparseGraph<V, E> implements Graph<V, E> {
         public void put(V v) {
             this.data = v;
         }
+
+        @Override
+        public int compareTo(VertexNode<V> v) {
+            if (dist > v.dist) {
+                return 1;
+            }
+            else if (dist < v.dist) {
+                return -1;
+            }
+            return 0;
+        }
+
     }
 
     //Class for an edge of type E
@@ -90,6 +104,18 @@ public class SparseGraph<V, E> implements Graph<V, E> {
             throw new PositionException();
         }
     }
+
+    public void setDist(Vertex<V> v, double dist) {
+        convert(v).dist = dist;
+    }
+
+    public double getDist(Vertex<V> v) {
+        if (v == null) {
+            throw new PositionException();
+        }
+        return convert(v).dist;
+    }
+
 
     // Converts the vertex back to a VertexNode to use internally
     private VertexNode<V> convert(Vertex<V> v) throws PositionException {

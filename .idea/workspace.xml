@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bf31e70-59e8-4749-a467-0bb19a21fd5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hw8/hw8/HashMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw4/exceptions/EmptyException.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw4/exceptions/EmptyException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/BinarySearchTreeMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/BinarySearchTreeMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/BinarySearchTreeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/BinarySearchTreeMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/README" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/Words.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/Words.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw7/hw7/Words.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw7/hw7/Words.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw9/hw9/SparseGraph$EdgeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw9/hw9/SparseGraph$EdgeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw9/hw9/SparseGraph$VertexNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw9/hw9/SparseGraph$VertexNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw9/hw9/SparseGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw9/hw9/SparseGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw9/hw9/SparseGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw9/hw9/SparseGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw9/hw9/StreetSearcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/hw9/hw9/StreetSearcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw9/hw9/StreetSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw9/hw9/StreetSearcher.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,23 +39,39 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw9/hw9/SparseGraph.java">
+        <entry file="file://$PROJECT_DIR$/hw9/hw9/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="163" column="9" lean-forward="true" selection-start-line="163" selection-start-column="9" selection-end-line="163" selection-end-column="9" />
+            <state relative-caret-position="2125">
+              <caret line="140" column="38" selection-start-line="140" selection-start-column="38" selection-end-line="140" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7907#7908#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw9/hw9/Graph.java">
+        <entry file="file://$PROJECT_DIR$/hw9/hw9/SparseGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-101">
-              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+            <state relative-caret-position="17">
+              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#991#992#0" expanded="true" />
+                <element signature="e#1078#1079#0" expanded="true" />
+                <element signature="e#2656#2657#0" expanded="true" />
+                <element signature="e#2694#2695#0" expanded="true" />
+                <element signature="e#8469#8470#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hw9/hw9/StreetSearcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw9/hw9/tests/GraphTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="397" column="25" selection-start-line="397" selection-start-column="25" selection-end-line="397" selection-end-column="25" />
+            <state relative-caret-position="6732">
+              <caret line="398" column="5" lean-forward="true" selection-start-line="398" selection-start-column="5" selection-end-line="398" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,12 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>length</find>
-      <find>Length</find>
-      <find>dequeue.removeBack();</find>
-      <find>first</find>
-      <find>1000</find>
-      <find>100000</find>
       <find>10000</find>
       <find>50000</find>
       <find>Avl</find>
@@ -118,6 +128,13 @@
       <find>rightPriority</find>
       <find>hasC</find>
       <find>getIndex(key</find>
+      <find>vert</find>
+      <find>out.it</find>
+      <find>comp</find>
+      <find>pathVertices</find>
+      <find>uDistance</find>
+      <find>nbDistance</find>
+      <find>edgeDistance</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,14 +175,17 @@
         <option value="$PROJECT_DIR$/hw8/hw8/HashMap.java" />
         <option value="$PROJECT_DIR$/hw8/hw8/tests/MapTest.java" />
         <option value="$PROJECT_DIR$/hw8/hw8/tests/HashMapTest.java" />
-        <option value="$PROJECT_DIR$/hw9/hw9/SparseGraph.java" />
         <option value="$PROJECT_DIR$/hw9/hw9/tests/GraphTest.java" />
+        <option value="$PROJECT_DIR$/hw9/hw9/SparseGraph.java" />
+        <option value="$PROJECT_DIR$/hw9/hw9/StreetSearcher.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1800" />
-    <option name="height" value="1085" />
+    <option name="x" value="572" />
+    <option name="y" value="345" />
+    <option name="width" value="1828" />
+    <option name="height" value="1813" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -223,7 +243,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556519166773" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556770804357" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -263,12 +283,12 @@
       <workItem from="1553071470825" duration="83526000" />
       <workItem from="1554162064296" duration="41722000" />
       <workItem from="1554565230867" duration="5960000" />
-      <workItem from="1555658961715" duration="31620000" />
+      <workItem from="1555658961715" duration="42238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260274000" />
+    <option name="totallyTimeSpent" value="270892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="733" extended-state="6" />
@@ -308,7 +328,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hw6/file1.txt" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -625,9 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw9/hw9/Edge.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/hw9/exceptions/RemovalException.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -662,34 +678,51 @@
     <entry file="file://$PROJECT_DIR$/hw9/hw9/Vertex.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw9/hw9/SparseGraph.java">
+    <entry file="file://$PROJECT_DIR$/hw9/data/baltimore.streets.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw9/hw9/tests/GraphTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="163" column="9" lean-forward="true" selection-start-line="163" selection-start-column="9" selection-end-line="163" selection-end-column="9" />
+        <state relative-caret-position="6732">
+          <caret line="398" column="5" lean-forward="true" selection-start-line="398" selection-start-column="5" selection-end-line="398" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7907#7908#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw9/data/baltimore.streets.txt">
+    <entry file="file://$PROJECT_DIR$/hw9/hw9/Edge.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/hw9/hw9/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101">
-          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+        <state relative-caret-position="2125">
+          <caret line="140" column="38" selection-start-line="140" selection-start-column="38" selection-end-line="140" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw9/hw9/tests/GraphTest.java">
+    <entry file="file://$PROJECT_DIR$/hw9/hw9/SparseGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="397" column="25" selection-start-line="397" selection-start-column="25" selection-end-line="397" selection-end-column="25" />
+        <state relative-caret-position="17">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#2656#2657#0" expanded="true" />
+            <element signature="e#2694#2695#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw9/hw9/StreetSearcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

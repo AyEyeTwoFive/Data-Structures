@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Scanner;
+import java.util.Comparator;
+import java.util.Iterator;
 
 /**
  * Search for the shortest path between two endpoints using
@@ -36,6 +38,7 @@ public final class StreetSearcher {
     // Silencing checkstyle
     private StreetSearcher() {}
 
+
     // Get the path by tracing labels back from end to start.
     private static List<Edge<String>> getPath(Vertex<String> end,
                                               Vertex<String> start) {
@@ -54,6 +57,7 @@ public final class StreetSearcher {
         return null;
     }
 
+
     // Print the path found.
     private static void printPath(List<Edge<String>> path,
                                   double totalDistance) {
@@ -68,7 +72,6 @@ public final class StreetSearcher {
                                + graph.label(path.get(i)));
         }
     }
-
 
     // Djikstra's Algorithm to find shortest path.
     private static void findShortestPath(String startName, String endName) {
@@ -89,8 +92,50 @@ public final class StreetSearcher {
            vertex info and distance info to use in a standard priority
            queue.
         */
+        for (Vertex<String> v : vertices.values()) {
+            graph.setDist(v, MAX_DISTANCE);
+            graph.label(v, null);
+        }
+        graph.setDist(start, 0);
+        graph.label(start, null);
 
+        PriorityQueue<Vertex<String>> pathfind = new PriorityQueue<>();
 
+        for (Vertex<String> v : vertices.values()) {
+            pathfind.add(v);
+        }
+
+        boolean found = false;
+        while (!pathfind.isEmpty()) {
+            Vertex<String> u = pathfind.peek();
+            pathfind.remove();
+            Iterable<Edge<String>> out = graph.outgoing(u);
+            Iterator<Edge<String>> it = out.iterator();
+            while (it.hasNext()) {
+                Edge<String> e = it.next();
+                Vertex<String> nb = graph.to(e);
+                double uDist = graph.getDist(u);
+                double nbDist = graph.getDist(nb);
+                double edgeDist = (Double) graph.label(e);
+                if ((uDist + edgeDist) < nbDist) {
+                    pathfind.remove(nb);
+                    graph.setDist(nb, uDist + edgeDist);
+                    graph.label(nb, e);
+                    pathfind.add(nb);
+                }
+                if (end.equals(nb)) {
+                    found = true;
+                    totalDist = graph.getDist(nb);
+                    break;
+                }
+            }
+
+        }
+
+        if (totalDist == -1) {
+            System.err.println("No Path Found.");
+            return;
+        }
 
         // These method calls will create and print the path for you
         List<Edge<String>> path = getPath(end, start);
